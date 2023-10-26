@@ -75,9 +75,9 @@ def test_z3():
     ## Hamming Weights:
     for bits in [j for j in range(9)]:
         for i, bv1 in enumerate(bvs):
-            for j, bv2 in enumerate(bvs):
-                if i != j:
-                    s.add(Hamming_Weight(bv1+bv2) == bits)
+            for k in range(len(bvs)):
+                bv2 = bvs[(i + k)%256]
+                s.add(Hamming_Weight(bv1+bv2) == bits)
 
         if(s.check() == sat):
             print("Constraints Satisified In %d Bits" %(bits)),
