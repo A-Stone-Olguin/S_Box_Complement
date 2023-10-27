@@ -123,8 +123,44 @@ def two_by_two_s_box_unknown():
         sys.stdout.flush()
     return
 
+def n_by_n_s_box_unknown(n, weight, distance):
+    elements = n**2
+    bits = ceil(log2(elements))
+
+    unknown_bvs = []
+    for i in range(elements):
+        name = "unknown_bv_{row}_{col}".format(row=i%n, col = floor(i/n))
+        bv = BitVec(name, bits)
+        unknown_bvs.append(bv)
+
+    known_bvs = []
+    for i in range(elements):
+        # name = f"known_bv_{row}_{col}".format(row=i%n, col = floor(i/n))
+        bv = BitVecVal(i, bits)
+        known_bvs.append(bv)
+
+    s = Solver();
+    s.set("timeout", 1000000)
+
+    s.add(Distinct(*unknown_bvs))
+
+    # Hamming Weight check
+    for i in range(len(known_bvs)):
+        s.add(Hamming_Weight(known_bvs[i] + unknown_bvs[i]) == weight)
+        s.add(Hamming_Distance(known_bvs[i], unknown_bvs[i]) == distance)
+
+    if(s.check() == sat):
+        print("YAY! Constraints Satisified In %d Bits" %(bits)),
+        m = s.model()
+        for d in m.decls():
+            print('\t{state}\t->\t{encode:0{fieldsize}b}'.format(state=d.name(),encode=m[d].as_long(),fieldsize=bits))
+    else:
+        print("Constraints Not Satisified in %d Bits" %(bits))
+        sys.stdout.flush()
+    return
+
 def main():
-    two_by_two_s_box_unknown()
+    n_by_n_s_box_unknown(n=2, weight=1, distance=1)
     return
 
 if __name__ == "__main__":
