@@ -89,15 +89,42 @@ def test_z3():
             sys.stdout.flush()
     return
 
+def two_by_two_s_box_unknown():
+    bits = 2
+    u_bv0_0, u_bv0_1, u_bv1_0, u_bv1_1 = BitVecs('u_bv0_0 u_bv0_1 u_bv1_0 u_bv1_1', bits)
+    s = Solver();
+    s.set("timeout", 1000000)
+    
+    bv0_0 = BitVecVal(0, bits)
+    bv0_1 = BitVecVal(1, bits)
+    bv1_0 = BitVecVal(2, bits)
+    bv1_1 = BitVecVal(3, bits)
+
+    s.add(Distinct(u_bv0_0, u_bv0_1, u_bv1_0, u_bv1_1))
+    
+    # s.add(And(Hamming_Weight(bv0_0 + u_bv0_0) == 1, Hamming_Weight(bv1_0 + u_bv1_0) == 1, Hamming_Weight(bv0_1 + u_bv0_1) == 1,Hamming_Weight(bv1_1 + u_bv1_1) == 1))
+    s.add(Hamming_Weight(bv0_0 + u_bv0_0) == 1)
+    s.add(Hamming_Weight(bv0_1 + u_bv0_1) == 1)
+    s.add(Hamming_Weight(bv1_0 + u_bv1_0) == 1)
+    s.add(Hamming_Weight(bv1_1 + u_bv1_1) == 1)
+
+    s.add(Hamming_Distance(bv0_0, u_bv0_0) == 1)
+    s.add(Hamming_Distance(bv0_1, u_bv0_1) == 1)
+    s.add(Hamming_Distance(bv1_0, u_bv1_0) == 1)
+    s.add(Hamming_Distance(bv1_1, u_bv1_1) == 1)
+
+    if(s.check() == sat):
+        print("YAY! Constraints Satisified In %d Bits" %(bits)),
+        m = s.model()
+        for d in m.decls():
+            print('\t{state}\t->\t{encode:0{fieldsize}b}'.format(state=d.name(),encode=m[d].as_long(),fieldsize=bits))
+    else:
+        print("Constraints Not Satisified in %d Bits" %(bits))
+        sys.stdout.flush()
+    return
+
 def main():
-    # mat_array = [1, 2, 3, 4,
-    #                2, 1, 4, 3,
-    #              3, 4, 1, 2,
-    #              4, 3, 2, 1]
-    # matrix = MatrixFromSquareArray(mat_array)
-    # print(matrix)
-    # CheckLatinSquare(matrix)
-    test_z3()
+    two_by_two_s_box_unknown()
     return
 
 if __name__ == "__main__":
