@@ -228,18 +228,14 @@ def create_graph(s_box, s_box_complement):
     # for i in range(256):
     #     E[i] = s_box_complement[s_box[i]]
 
-    Adj_matrix =  [] #[[] * 16] * 16
+    Adj_matrix = [[0] * 16 for _ in range(16)]
     for i in range(16):
-        row = []
         for j in range(16):
             if i == j:
-                print(f"I: {i}\t J: {j}")
-                Adj_matrix.append(7)
+                Adj_matrix[i][j] = 0
             else:
-                Adj_matrix.append(-1)
-        Adj_matrix.append(row)
-    print(Adj_matrix)
-    # print_matrix(Adj_matrix)
+                Adj_matrix[i][j] = -1
+    print_matrix(Adj_matrix)
     return
 
 
