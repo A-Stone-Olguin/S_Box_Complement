@@ -199,8 +199,7 @@ def potential_s_box_complement():
         106,  62,  74, 180, 209,  97, 228, 194, 193, 111, 172, 220, 104, 201,   6, 122, 
         100, 236,  79, 103, 206, 109,  54,  59,  43, 204, 156,  60,  64, 229, 238,  49
         ]
-    hex_potential_s_box_complement = [hex(i) for i in potential_s_box_complement]
-    return hex_potential_s_box_complement
+    return potential_s_box_complement
 
 def validate_complement(s_box, s_box_complement, d_weight, d_distance):
     """
@@ -215,25 +214,32 @@ def validate_complement(s_box, s_box_complement, d_weight, d_distance):
         # Using the z3-build Hamming Weight and Hamming Distance functions on BitVecs, uses 8 bits
         s_box_element = BitVecVal(s_box[i], 8)
         complement_element = BitVecVal(s_box_complement[i], 8)
-        if (Hamming_Weight(s_box_element + complement_element) != d_weight or
-             Hamming_Distance(s_box_element, s_box_complement) != d_distance):
+        weight_not_satisfied = (Hamming_Weight(s_box_element + complement_element) != d_weight)
+        distance_not_satisfied = (Hamming_Distance(s_box_element, complement_element) != d_distance)
+
+        # If either weight or distance is not satisfied, return false
+        if is_false(Or(weight_not_satisfied, distance_not_satisfied)):
             return False
     return True
 
 
 def main():
     # Generates the n by n s_box possibilities and prints the results to a file
-    for n in range(2, 17):
-        filename = f"results/{n}_by_{n}_S_box.txt"
-        n_by_n_s_box_unknown(n, filename)
+    # COMMENT OUT IF YOU WANT TO REGENERATE
+    # for n in range(2, 17):
+    #     filename = f"results/{n}_by_{n}_S_box.txt"
+    #     n_by_n_s_box_unknown(n, filename)
+    s_box = [element for element in s_box_def()]
 
-    s_box = s_box_def()
     s_box_complement = potential_s_box_complement()
+
     if (validate_complement(s_box, s_box_complement, 4, 4)):
-        print("Found a successful complement! It is:")
-        print_matrix(MatrixFromSquareArray(potential_s_box_complement()))
+        print("Found a successful complement to s_box:")
+        print_matrix(MatrixFromSquareArray(s_box))
+        print("\nWith complement:")
+        print_matrix(MatrixFromSquareArray(s_box_complement))
     else:
-        print("Something was created wrong. The test failed")
+        print("Something was created wrong. The test failed.")
     return
 
 if __name__ == "__main__":
