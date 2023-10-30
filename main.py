@@ -223,19 +223,23 @@ def validate_complement(s_box, s_box_complement, d_weight, d_distance):
     return True
 
 def create_graph(s_box, s_box_complement):
-    V = [i for i in range(256)]
-    E = {}
-    for i in range(256):
-        E[i] = s_box_complement[s_box[i]]
+    # V = [i for i in range(256)]
+    # E = {}
+    # for i in range(256):
+    #     E[i] = s_box_complement[s_box[i]]
 
-    Adj_matrix = [[0] * 16] * 16
-    for i in range (16):
+    Adj_matrix =  [] #[[] * 16] * 16
+    for i in range(16):
+        row = []
         for j in range(16):
             if i == j:
-                Adj_matrix[i][j] = 3
+                print(f"I: {i}\t J: {j}")
+                Adj_matrix.append(7)
             else:
-                Adj_matrix[i][j] = -1
-    print_matrix(Adj_matrix)
+                Adj_matrix.append(-1)
+        Adj_matrix.append(row)
+    print(Adj_matrix)
+    # print_matrix(Adj_matrix)
     return
 
 
