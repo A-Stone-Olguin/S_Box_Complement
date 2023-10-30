@@ -202,6 +202,25 @@ def potential_s_box_complement():
     hex_potential_s_box_complement = [hex(i) for i in potential_s_box_complement]
     return hex_potential_s_box_complement
 
+def validate_complement(s_box, s_box_complement, d_weight, d_distance):
+    """
+    A function to validate that there is an equal Hamming Weight on the sums of the s_box and its complement and a constant Hamming Distance.
+
+    :param s_box: A 256-sized array
+    :param s_box_complement: A 256-sized array, most likely generated
+    :param d_weight: The desired constant weight
+    :param d_distance: The desired constant distance
+    """
+    for i in range(256):
+        # Using the z3-build Hamming Weight and Hamming Distance functions on BitVecs, uses 8 bits
+        s_box_element = BitVecVal(s_box[i], 8)
+        complement_element = BitVecVal(s_box_complement[i], 8)
+        if (Hamming_Weight(s_box_element + complement_element) != d_weight or
+             Hamming_Distance(s_box_element, s_box_complement) != d_distance):
+            return False
+    return True
+
+
 def main():
     # Generates the n by n s_box possibilities and prints the results to a file
     for n in range(2, 17):
@@ -209,7 +228,12 @@ def main():
         n_by_n_s_box_unknown(n, filename)
 
     s_box = s_box_def()
-    print_matrix(MatrixFromSquareArray(potential_s_box_complement()))
+    s_box_complement = potential_s_box_complement()
+    if (validate_complement(s_box, s_box_complement, 4, 4)):
+        print("Found a successful complement! It is:")
+        print_matrix(MatrixFromSquareArray(potential_s_box_complement()))
+    else:
+        print("Something was created wrong. The test failed")
     return
 
 if __name__ == "__main__":
