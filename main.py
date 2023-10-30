@@ -222,6 +222,22 @@ def validate_complement(s_box, s_box_complement, d_weight, d_distance):
             return False
     return True
 
+def create_graph(s_box, s_box_complement):
+    V = [i for i in range(256)]
+    E = {}
+    for i in range(256):
+        E[i] = s_box_complement[s_box[i]]
+
+    Adj_matrix = [[0] * 16] * 16
+    for i in range (16):
+        for j in range(16):
+            if i == j:
+                Adj_matrix[i][j] = 3
+            else:
+                Adj_matrix[i][j] = -1
+    print_matrix(Adj_matrix)
+    return
+
 
 def main():
     # Generates the n by n s_box possibilities and prints the results to a file
@@ -233,13 +249,15 @@ def main():
 
     s_box_complement = potential_s_box_complement()
 
-    if (validate_complement(s_box, s_box_complement, 4, 4)):
-        print("Found a successful complement to s_box:")
-        print_matrix(MatrixFromSquareArray(s_box))
-        print("\nWith complement:")
-        print_matrix(MatrixFromSquareArray(s_box_complement))
-    else:
-        print("Something was created wrong. The test failed.")
+    # if (validate_complement(s_box, s_box_complement, 4, 4)):
+    #     print("Found a successful complement to s_box:")
+    #     print_matrix(MatrixFromSquareArray(s_box))
+    #     print("\nWith complement:")
+    #     print_matrix(MatrixFromSquareArray(s_box_complement))
+    # else:
+    #     print("Something was created wrong. The test failed.")
+
+    create_graph(s_box, s_box_complement)
     return
 
 if __name__ == "__main__":
