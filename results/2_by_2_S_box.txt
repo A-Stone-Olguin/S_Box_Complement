@@ -1,0 +1,5 @@
+Constraints Satisified for HW: 2 and HD: 2
+	unknown_bv_3	->	00
+	unknown_bv_2	->	01
+	unknown_bv_0	->	11
+	unknown_bv_1	->	10
