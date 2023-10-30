@@ -3,6 +3,11 @@ from z3 import *
 import re
 
 def MatrixFromSquareArray(square_arr):
+    """
+    Creates an n-sized array of n-sized arrays from an array with n^2 entries.
+
+    :param square_arr: An array with a square number of entries
+    """
     N = math.sqrt(len(square_arr))
     if not N.is_integer():
         print("Invalid dimensions! Not a square array")
@@ -13,106 +18,144 @@ def MatrixFromSquareArray(square_arr):
         return matrix
     
 def print_matrix(matrix):
+    """
+    Prints a matrix row by row.
+
+    :param matrix: An m-sized array of n-sized arrays.
+    """
     for row in matrix:
         print(row)
     
 def IntCeilLog2(val): return int(ceil(log2(val)))
 
 def Hamming_Weight(bv):
+    """
+    Calculates the Hamming Weight of a Bitvector (from z3).
+
+    :param bv: The bitvector in the Hamming Weight calculation
+    """
     return Sum([
         ZeroExt(IntCeilLog2(bv.size()), Extract(i,i,bv)) 
         for i in range(bv.size())
     ])
 
 def Hamming_Distance(bv1, bv2):
+        """
+        Calculates the Hamming Distance between two bitvectors (from z3).
+
+        :param bv1: The first bitvector in the distance calculation
+        :param bv2: The second bitvector in the distance calculation
+        """
         return Sum([
         ZeroExt(IntCeilLog2(bv1.size()), Extract(i,i, bv1 ^ bv2)) 
         for i in range(bv1.size())
     ])
 
-def n_by_n_s_box_unknown(n, file_object):
-    elements = n**2
-    bits = ceil(log2(elements))
-    for weight in range(2, bits+1):
-        for distance in range(2, bits+1):
-            unknown_bvs = []
-            for i in range(elements):
-                name = "unknown_bv_{row}_{col}".format(row=i%n, col = floor(i/n))
-                bv = BitVec(name, bits)
-                unknown_bvs.append(bv)
+def n_by_n_s_box_unknown(n, filename):
+    """
+    Uses z3 to solve if there can be another matrix such that each element has the same Hamming Weight and the same Hamming Distance between them
 
-            known_bvs = []
-            for i in range(elements):
-                # name = f"known_bv_{row}_{col}".format(row=i%n, col = floor(i/n))
-                bv = BitVecVal(i, bits)
-                known_bvs.append(bv)
+    :param n: Dimension of the s_box (n by n)
+    :param filename: What the name of the output file should be
 
-            s = Solver();
-            s.set("timeout", 1000000)
+    The output will show something like:
+         unknown_bv_10 -> 01011100
+    Which means that the number 10 should be matched with int(01011100)=92 to have a fixed hamming distance
+    """
+    with open(filename, "w") as f:
+        elements = n**2
+        bits = ceil(log2(elements))
+        for weight in range(2, bits+1):
+            for distance in range(2, bits+1):
+                unknown_bvs = []
 
-            s.add(Distinct(*unknown_bvs))
+                # These will be the variables we solve for
+                for i in range(elements):
+                    name = "unknown_bv_{element}".format(element=i)
+                    bv = BitVec(name, bits)
+                    unknown_bvs.append(bv)
 
-            # Hamming Weight and Hamming Distance check
-            for i in range(len(known_bvs)):
-                s.add(Hamming_Weight(known_bvs[i] + unknown_bvs[i]) == weight)
-                s.add(Hamming_Distance(known_bvs[i], unknown_bvs[i]) == distance)
+                # 256 values in bits, used for comparison
+                known_bvs = []
+                for i in range(elements):
+                    bv = BitVecVal(i, bits)
+                    known_bvs.append(bv)
 
-            if(s.check() == sat):
-                print("Constraints Satisified for HW: %d and HD: %d" %(weight, distance), file=file_object),
-                m = s.model()
-                for d in m.decls():
-                    print('\t{state}\t->\t{encode:0{fieldsize}b}'.format(state=d.name(),encode=m[d].as_long(),fieldsize=bits), file=file_object)
-            else:
-                print("Constraints Not Satisified for HW: %d and HD: %d" %(weight, distance), file=file_object)
-                sys.stdout.flush()
+                s = Solver();
+                s.set("timeout", 1000000)
+
+                s.add(Distinct(*unknown_bvs))
+
+                # Hamming Weight and Hamming Distance check
+                for i in range(len(known_bvs)):
+                    s.add(Hamming_Weight(known_bvs[i] + unknown_bvs[i]) == weight)
+                    s.add(Hamming_Distance(known_bvs[i], unknown_bvs[i]) == distance)
+
+                if(s.check() == sat):
+                    print("Constraints Satisified for HW: %d and HD: %d" %(weight, distance), file=f),
+                    m = s.model()
+                    for d in m.decls():
+                        print('\t{state}\t->\t{encode:0{fieldsize}b}'.format(state=d.name(),encode=m[d].as_long(),fieldsize=bits), file=f)
+                else:
+                    print("Constraints Not Satisified for HW: %d and HD: %d" %(weight, distance), file=f)
+                    sys.stdout.flush()
     return
 
-def create_s_box_complement(s_box):
+def create_s_box_complement(s_box, weight):
+    """
+    Given an s_box, returns a 256 size array of the complement.
+    This uses the results from `n_by_n_s_box_unknown` which finds that it only works for equal weight and hamming distance.
+
+    :param s_box: The 256 size array of an s_box to be found as the complement
+    :param weight: What the weight constant (and thereby distance) should be for the complement's elements
+    """
     elements = 16**2
     bits = ceil(log2(elements))
     
     s_box_complement = [0] * 256
     
-    for weight in range(4,5):
-        distance = weight ## We are using the results from the n_by_n_s_unknown
+    distance = weight ## We are using the results from the n_by_n_s_unknown
 
-        unknown_bvs = []
-        for i in range(elements):
-            name = "unknown_bv_{s_index}".format(s_index = i)
-            bv = BitVec(name, bits)
-            unknown_bvs.append(bv)
+    unknown_bvs = []
+    for i in range(elements):
+        name = "unknown_bv_{s_index}".format(s_index = i)
+        bv = BitVec(name, bits)
+        unknown_bvs.append(bv)
 
-        known_bvs = []
-        for i in range(elements):
-            # name = f"known_bv_{row}_{col}".format(row=i%n, col = floor(i/n))
-            bv = BitVecVal(s_box[i], bits)
-            known_bvs.append(bv)
+    known_bvs = []
+    for i in range(elements):
+        # name = f"known_bv_{row}_{col}".format(row=i%n, col = floor(i/n))
+        bv = BitVecVal(s_box[i], bits)
+        known_bvs.append(bv)
 
-        s = Solver();
-        s.set("timeout", 1000000)
+    s = Solver();
+    s.set("timeout", 1000000)
 
-        s.add(Distinct(*unknown_bvs))
+    s.add(Distinct(*unknown_bvs))
 
-        # Hamming Weight and Hamming Distance check
-        for i in range(len(known_bvs)):
-            s.add(Hamming_Weight(known_bvs[i] + unknown_bvs[i]) == weight)
-            s.add(Hamming_Distance(known_bvs[i], unknown_bvs[i]) == distance)
+    # Hamming Weight and Hamming Distance check
+    for i in range(len(known_bvs)):
+        s.add(Hamming_Weight(known_bvs[i] + unknown_bvs[i]) == weight)
+        s.add(Hamming_Distance(known_bvs[i], unknown_bvs[i]) == distance)
 
-        if(s.check() == sat):
-            print("Constraints Satisified for HW: %d and HD: %d" %(weight, distance)),
-            m = s.model()
-            for d in m.decls():
-                # print(type(d.name()))
-                index = int(re.search(r'\d+', d.name()).group())
-                s_box_complement[index] = m[d].as_long()
-                # print('\t{state}\t->\t{encode:0{fieldsize}b}'.format(state=d.name(),encode=m[d].as_long(),fieldsize=bits))
+    if(s.check() == sat):
+        print("Constraints Satisified for HW: %d and HD: %d" %(weight, distance)),
+        m = s.model()
+        for d in m.decls():
+            # print(type(d.name()))
+            index = int(re.search(r'\d+', d.name()).group())
+            s_box_complement[index] = m[d].as_long()
+            # print('\t{state}\t->\t{encode:0{fieldsize}b}'.format(state=d.name(),encode=m[d].as_long(),fieldsize=bits))
 
-        else:
-            print("Constraints Not Satisified for HW: %d and HD: %d" %(weight, distance))
-            sys.stdout.flush()
+    else:
+        print("Constraints Not Satisified for HW: %d and HD: %d" %(weight, distance))
+        sys.stdout.flush()
     return s_box_complement
 
 def s_box_def():
+    """ 
+    Returns the definition of the tiny_aes_c s_box from CW tutorials asn a 256 size array in hex
+    """
     s_box =  [
         # 0    1    2    3    4    5    6    7    8    9    a    b    c    d    e    f 
         0x63,0x7c,0x77,0x7b,0xf2,0x6b,0x6f,0xc5,0x30,0x01,0x67,0x2b,0xfe,0xd7,0xab,0x76, # 0
@@ -135,6 +178,9 @@ def s_box_def():
     return s_box
 
 def potential_s_box_complement():
+    """
+    Returns a 256 size array s_box complement generated from the 16 by 16 s_box with HW and HD = 4 in hex.
+    """
     potential_s_box_complement = [
         210, 186, 197, 190, 134, 200, 202, 105,  68,  42, 211, 243,  87,  99,  26,  32,
           0, 165, 160,  40,  66, 108, 212, 101, 199, 183, 140,   5,  46,  14, 195, 177, 
@@ -157,12 +203,12 @@ def potential_s_box_complement():
     return hex_potential_s_box_complement
 
 def main():
-    # for n in range(2, 17):
-        # filename = f"{n}_by_{n}_S_box.txt"
-        # with open(filename, "w") as f:
-        #     n_by_n_s_box_unknown(n, f)
+    # Generates the n by n s_box possibilities and prints the results to a file
+    for n in range(2, 17):
+        filename = f"results/{n}_by_{n}_S_box.txt"
+        n_by_n_s_box_unknown(n, filename)
+
     s_box = s_box_def()
-    # print(create_s_box_complement(s_box))
     print_matrix(MatrixFromSquareArray(potential_s_box_complement()))
     return
 
