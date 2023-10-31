@@ -222,22 +222,68 @@ def validate_complement(s_box, s_box_complement, d_weight, d_distance):
             return False
     return True
 
-def create_graph(s_box, s_box_complement):
-    # V = [i for i in range(256)]
-    # E = {}
-    # for i in range(256):
-    #     E[i] = s_box_complement[s_box[i]]
+def flip_bitvec(bv, indices):
+    """
+    Flips the bits at selected locations of a bitvector
+    """
+    flips = []
+    for index in indices:
+        flips.append(Extract(index, index, bv))
 
-    Adj_matrix = [[0] * 16 for _ in range(16)]
-    for i in range(16):
-        for j in range(16):
-            if i == j:
-                Adj_matrix[i][j] = 0
+def create_complements(n, filename):
+    with open(filename, "w") as f:
+        elements = n**2
+        bits = ceil(log2(elements))
+
+        ones_vector = BitVecVal(2**bits - 1, bits)
+        # extra_element_range = bits/2
+        print(f"ones vector: {ones_vector}")
+        for weight_dist in range(bits, 0, -1):
+            weight = weight_dist
+            distance = weight_dist
+
+            # Creating "added vector"
+            add_val = 0
+            # if (bits-weight_dist <= bits/2):
+            #     for i in range(bits-weight_dist):
+            #         add_val += 2**(bits - 2*(i+1) + 1)
+            add_vector = BitVecVal(add_val, bits)
+            # print('{encode_comp:0{fieldsize}b}'.format(encode_comp=add_val, fieldsize=bits))
+
+            s_box_bvs = []
+            for i in range(elements):
+                bv = BitVecVal(i, bits)
+                s_box_bvs.append(bv)
+            
+            complement_s_box_bvs = []
+            for i in range(elements):
+                value = simplify(add_vector + ones_vector - s_box_bvs[i])
+                bv = BitVecVal(value, bits)
+                complement_s_box_bvs.append(bv)
+
+            s = Solver();
+            s.set("timeout", 1000000)
+
+            s.add(Distinct(*complement_s_box_bvs))
+
+            # Hamming Weight and Hamming Distance check
+            for i in range(len(s_box_bvs)):
+                s.add(Hamming_Weight(s_box_bvs[i] + complement_s_box_bvs[i]) == weight)
+                s.add(Hamming_Distance(s_box_bvs[i], complement_s_box_bvs[i]) == distance)
+
+            if(s.check() == sat):
+                print("Constraints Satisified for HW: %d and HD: %d" %(weight, distance)),
+                m = s.model()
+                for i in range(elements):
+                    print('\t{s_box_elt}\t->\t{encode_comp:0{fieldsize}b}'.format(s_box_elt=s_box_bvs[i], encode_comp=complement_s_box_bvs[i].as_long(), fieldsize=bits))
+                # for d in m.decls():
+                #     print('\t{state}\t->\t{encode:0{fieldsize}b}'.format(state=d.name(),encode=m[d].as_long(),fieldsize=bits))
             else:
-                Adj_matrix[i][j] = -1
-    print_matrix(Adj_matrix)
+                print("Constraints Not Satisified for HW: %d and HD: %d" %(weight, distance))
+                # for i in range(elements):
+                #     print('\t{s_box_elt}\t->\t{encode_comp:0{fieldsize}b}'.format(s_box_elt=s_box_bvs[i], encode_comp=complement_s_box_bvs[i].as_long(), fieldsize=bits))
+                sys.stdout.flush()
     return
-
 
 def main():
     # Generates the n by n s_box possibilities and prints the results to a file
@@ -245,9 +291,11 @@ def main():
     # for n in range(2, 17):
     #     filename = f"results/{n}_by_{n}_S_box.txt"
     #     n_by_n_s_box_unknown(n, filename)
-    s_box = [element for element in s_box_def()]
+    create_complements(3, "test.txt")
 
-    s_box_complement = potential_s_box_complement()
+    # s_box = [element for element in s_box_def()]
+
+    # s_box_complement = potential_s_box_complement()
 
     # if (validate_complement(s_box, s_box_complement, 4, 4)):
     #     print("Found a successful complement to s_box:")
@@ -256,8 +304,6 @@ def main():
     #     print_matrix(MatrixFromSquareArray(s_box_complement))
     # else:
     #     print("Something was created wrong. The test failed.")
-
-    create_graph(s_box, s_box_complement)
     return
 
 if __name__ == "__main__":
