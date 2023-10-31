@@ -1,116 +1,126 @@
+Constraints Not Satisified for HW: 1 and HD: 1
+Constraints Not Satisified for HW: 1 and HD: 2
+Constraints Not Satisified for HW: 1 and HD: 3
+Constraints Not Satisified for HW: 1 and HD: 4
+Constraints Not Satisified for HW: 1 and HD: 5
+Constraints Not Satisified for HW: 1 and HD: 6
+Constraints Not Satisified for HW: 2 and HD: 1
 Constraints Not Satisified for HW: 2 and HD: 2
 Constraints Not Satisified for HW: 2 and HD: 3
 Constraints Not Satisified for HW: 2 and HD: 4
 Constraints Not Satisified for HW: 2 and HD: 5
 Constraints Not Satisified for HW: 2 and HD: 6
+Constraints Not Satisified for HW: 3 and HD: 1
 Constraints Not Satisified for HW: 3 and HD: 2
 Constraints Satisified for HW: 3 and HD: 3
-	unknown_bv_4	->	001111
-	unknown_bv_8	->	011011
-	unknown_bv_18	->	000100
+	unknown_bv_4	->	010010
+	unknown_bv_8	->	100001
+	unknown_bv_18	->	111011
 	unknown_bv_33	->	010000
-	unknown_bv_45	->	001011
-	unknown_bv_28	->	111010
-	unknown_bv_27	->	001110
+	unknown_bv_45	->	100110
+	unknown_bv_28	->	000000
+	unknown_bv_27	->	111110
 	unknown_bv_35	->	000110
-	unknown_bv_36	->	000010
-	unknown_bv_42	->	100001
-	unknown_bv_17	->	111101
-	unknown_bv_15	->	100011
-	unknown_bv_2	->	001001
-	unknown_bv_23	->	111110
-	unknown_bv_32	->	110011
-	unknown_bv_3	->	101111
+	unknown_bv_36	->	110010
+	unknown_bv_42	->	110000
+	unknown_bv_17	->	100011
+	unknown_bv_15	->	101001
+	unknown_bv_2	->	101000
+	unknown_bv_23	->	001110
+	unknown_bv_32	->	000101
+	unknown_bv_3	->	010110
 	unknown_bv_20	->	110111
 	unknown_bv_9	->	011010
 	unknown_bv_21	->	111001
-	unknown_bv_19	->	000000
-	unknown_bv_37	->	100010
-	unknown_bv_39	->	100000
-	unknown_bv_44	->	000101
-	unknown_bv_10	->	011001
-	unknown_bv_29	->	110001
-	unknown_bv_40	->	111011
-	unknown_bv_41	->	110000
-	unknown_bv_25	->	001010
-	unknown_bv_48	->	101010
-	unknown_bv_14	->	010111
-	unknown_bv_47	->	110110
-	unknown_bv_34	->	001000
-	unknown_bv_12	->	100110
+	unknown_bv_19	->	001001
+	unknown_bv_37	->	001100
+	unknown_bv_39	->	001011
+	unknown_bv_44	->	100010
+	unknown_bv_10	->	000001
+	unknown_bv_29	->	001000
+	unknown_bv_40	->	110001
+	unknown_bv_41	->	000011
+	unknown_bv_25	->	111100
+	unknown_bv_48	->	100101
+	unknown_bv_14	->	100100
+	unknown_bv_47	->	111010
+	unknown_bv_34	->	110100
+	unknown_bv_12	->	000010
 	unknown_bv_26	->	111111
-	unknown_bv_24	->	000001
-	unknown_bv_11	->	010001
+	unknown_bv_24	->	111101
+	unknown_bv_31	->	101110
 	unknown_bv_7	->	101011
-	unknown_bv_22	->	000011
-	unknown_bv_13	->	100100
-	unknown_bv_31	->	010010
-	unknown_bv_46	->	011111
+	unknown_bv_11	->	010001
+	unknown_bv_13	->	011000
+	unknown_bv_22	->	110101
+	unknown_bv_46	->	000100
 	unknown_bv_5	->	101100
-	unknown_bv_16	->	001100
-	unknown_bv_0	->	010101
-	unknown_bv_1	->	011000
-	unknown_bv_6	->	010011
+	unknown_bv_16	->	001010
+	unknown_bv_0	->	000111
+	unknown_bv_1	->	110011
+	unknown_bv_6	->	100000
 	unknown_bv_43	->	001101
 	unknown_bv_30	->	111000
 	unknown_bv_38	->	101101
 Constraints Not Satisified for HW: 3 and HD: 4
 Constraints Not Satisified for HW: 3 and HD: 5
 Constraints Not Satisified for HW: 3 and HD: 6
+Constraints Not Satisified for HW: 4 and HD: 1
 Constraints Not Satisified for HW: 4 and HD: 2
 Constraints Not Satisified for HW: 4 and HD: 3
 Constraints Satisified for HW: 4 and HD: 4
-	unknown_bv_4	->	101010
-	unknown_bv_8	->	010011
-	unknown_bv_18	->	001100
-	unknown_bv_33	->	101110
-	unknown_bv_45	->	111010
-	unknown_bv_28	->	000001
-	unknown_bv_27	->	111100
-	unknown_bv_35	->	111000
-	unknown_bv_42	->	110100
-	unknown_bv_36	->	010001
-	unknown_bv_17	->	101011
-	unknown_bv_15	->	011000
-	unknown_bv_2	->	010101
-	unknown_bv_23	->	100010
-	unknown_bv_32	->	001011
+	unknown_bv_4	->	100011
+	unknown_bv_8	->	110100
+	unknown_bv_18	->	100111
+	unknown_bv_33	->	011000
+	unknown_bv_45	->	100010
+	unknown_bv_28	->	111011
+	unknown_bv_27	->	001100
+	unknown_bv_35	->	010110
+	unknown_bv_36	->	001111
+	unknown_bv_42	->	100101
+	unknown_bv_17	->	101000
+	unknown_bv_15	->	100100
+	unknown_bv_2	->	110111
+	unknown_bv_23	->	000000
+	unknown_bv_32	->	010101
 	unknown_bv_3	->	010100
-	unknown_bv_20	->	100001
-	unknown_bv_9	->	010010
-	unknown_bv_21	->	100000
-	unknown_bv_19	->	101001
 	unknown_bv_37	->	110010
-	unknown_bv_39	->	101000
+	unknown_bv_9	->	110011
+	unknown_bv_20	->	001010
+	unknown_bv_19	->	001000
+	unknown_bv_21	->	000010
+	unknown_bv_39	->	010010
 	unknown_bv_44	->	000111
-	unknown_bv_10	->	011101
-	unknown_bv_29	->	000000
-	unknown_bv_40	->	111111
-	unknown_bv_41	->	111110
-	unknown_bv_25	->	000010
+	unknown_bv_10	->	010001
+	unknown_bv_29	->	111010
+	unknown_bv_40	->	000011
+	unknown_bv_41	->	000100
+	unknown_bv_25	->	001110
 	unknown_bv_48	->	101101
 	unknown_bv_14	->	011001
-	unknown_bv_47	->	000100
-	unknown_bv_34	->	010111
-	unknown_bv_12	->	100111
+	unknown_bv_47	->	100000
+	unknown_bv_34	->	000101
+	unknown_bv_12	->	110000
 	unknown_bv_26	->	111101
-	unknown_bv_24	->	100100
+	unknown_bv_24	->	000110
 	unknown_bv_11	->	110001
-	unknown_bv_7	->	101100
-	unknown_bv_22	->	100011
-	unknown_bv_13	->	010000
-	unknown_bv_31	->	001000
-	unknown_bv_46	->	000101
-	unknown_bv_5	->	001010
-	unknown_bv_16	->	100101
-	unknown_bv_0	->	011011
+	unknown_bv_7	->	010000
+	unknown_bv_22	->	000001
+	unknown_bv_13	->	011010
+	unknown_bv_31	->	111000
+	unknown_bv_46	->	111001
+	unknown_bv_5	->	101110
+	unknown_bv_16	->	001101
+	unknown_bv_0	->	101011
 	unknown_bv_1	->	100110
-	unknown_bv_6	->	001001
-	unknown_bv_43	->	110000
-	unknown_bv_30	->	111001
-	unknown_bv_38	->	001101
+	unknown_bv_6	->	100001
+	unknown_bv_43	->	111100
+	unknown_bv_30	->	001001
+	unknown_bv_38	->	010011
 Constraints Not Satisified for HW: 4 and HD: 5
 Constraints Not Satisified for HW: 4 and HD: 6
+Constraints Not Satisified for HW: 5 and HD: 1
 Constraints Not Satisified for HW: 5 and HD: 2
 Constraints Not Satisified for HW: 5 and HD: 3
 Constraints Not Satisified for HW: 5 and HD: 4
@@ -119,52 +129,53 @@ Constraints Satisified for HW: 5 and HD: 5
 	unknown_bv_8	->	010111
 	unknown_bv_18	->	001101
 	unknown_bv_33	->	111110
-	unknown_bv_45	->	000010
-	unknown_bv_28	->	000011
+	unknown_bv_45	->	110010
+	unknown_bv_28	->	100010
 	unknown_bv_27	->	000100
-	unknown_bv_35	->	001100
-	unknown_bv_36	->	001011
+	unknown_bv_35	->	111100
+	unknown_bv_36	->	011010
 	unknown_bv_42	->	110101
-	unknown_bv_17	->	001110
-	unknown_bv_15	->	010000
+	unknown_bv_17	->	100110
+	unknown_bv_15	->	100000
 	unknown_bv_2	->	101101
 	unknown_bv_23	->	001000
 	unknown_bv_32	->	011110
 	unknown_bv_3	->	101100
-	unknown_bv_20	->	100011
+	unknown_bv_20	->	001011
 	unknown_bv_9	->	010110
 	unknown_bv_21	->	001010
-	unknown_bv_19	->	100100
-	unknown_bv_37	->	111010
+	unknown_bv_19	->	001100
+	unknown_bv_37	->	011000
 	unknown_bv_39	->	111000
-	unknown_bv_44	->	010001
-	unknown_bv_10	->	010101
-	unknown_bv_29	->	100000
-	unknown_bv_40	->	000111
-	unknown_bv_41	->	010010
-	unknown_bv_25	->	000110
-	unknown_bv_48	->	101111
-	unknown_bv_14	->	100001
+	unknown_bv_44	->	000011
+	unknown_bv_10	->	110001
+	unknown_bv_29	->	000010
+	unknown_bv_40	->	010011
+	unknown_bv_41	->	000110
+	unknown_bv_25	->	100100
+	unknown_bv_48	->	000111
+	unknown_bv_14	->	010001
 	unknown_bv_47	->	110000
-	unknown_bv_34	->	011001
-	unknown_bv_12	->	110010
+	unknown_bv_34	->	010101
+	unknown_bv_12	->	100011
 	unknown_bv_26	->	000101
-	unknown_bv_24	->	100110
+	unknown_bv_24	->	100101
 	unknown_bv_11	->	010100
 	unknown_bv_7	->	101000
-	unknown_bv_22	->	001001
-	unknown_bv_13	->	100010
+	unknown_bv_22	->	100001
+	unknown_bv_13	->	010010
 	unknown_bv_31	->	000000
-	unknown_bv_46	->	110001
+	unknown_bv_46	->	010000
 	unknown_bv_5	->	101010
-	unknown_bv_16	->	101011
-	unknown_bv_0	->	110111
-	unknown_bv_1	->	110110
+	unknown_bv_16	->	101110
+	unknown_bv_0	->	111101
+	unknown_bv_1	->	111010
 	unknown_bv_6	->	101001
 	unknown_bv_43	->	110100
 	unknown_bv_30	->	000001
-	unknown_bv_38	->	111001
+	unknown_bv_38	->	001001
 Constraints Not Satisified for HW: 5 and HD: 6
+Constraints Not Satisified for HW: 6 and HD: 1
 Constraints Not Satisified for HW: 6 and HD: 2
 Constraints Not Satisified for HW: 6 and HD: 3
 Constraints Not Satisified for HW: 6 and HD: 4
@@ -172,8 +183,8 @@ Constraints Not Satisified for HW: 6 and HD: 5
 Constraints Satisified for HW: 6 and HD: 6
 	unknown_bv_4	->	111011
 	unknown_bv_8	->	110111
-	unknown_bv_33	->	011110
 	unknown_bv_18	->	101101
+	unknown_bv_33	->	011110
 	unknown_bv_45	->	010010
 	unknown_bv_28	->	100011
 	unknown_bv_27	->	100100

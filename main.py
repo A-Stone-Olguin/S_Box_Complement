@@ -65,8 +65,8 @@ def n_by_n_s_box_unknown(n, filename):
     with open(filename, "w") as f:
         elements = n**2
         bits = ceil(log2(elements))
-        for weight in range(2, bits+1):
-            for distance in range(2, bits+1):
+        for weight in range(1, bits+1):
+            for distance in range(1, bits+1):
                 unknown_bvs = []
 
                 # These will be the variables we solve for
