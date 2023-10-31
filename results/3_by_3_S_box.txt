@@ -1,27 +1,34 @@
+Constraints Not Satisified for HW: 1 and HD: 1
+Constraints Not Satisified for HW: 1 and HD: 2
+Constraints Not Satisified for HW: 1 and HD: 3
+Constraints Not Satisified for HW: 1 and HD: 4
+Constraints Not Satisified for HW: 2 and HD: 1
 Constraints Satisified for HW: 2 and HD: 2
-	unknown_bv_4	->	0001
+	unknown_bv_4	->	0010
 	unknown_bv_5	->	0000
-	unknown_bv_2	->	0111
-	unknown_bv_8	->	1101
-	unknown_bv_3	->	1001
-	unknown_bv_0	->	0110
+	unknown_bv_2	->	0100
+	unknown_bv_8	->	0001
+	unknown_bv_3	->	0110
+	unknown_bv_0	->	0011
 	unknown_bv_1	->	1000
-	unknown_bv_6	->	0011
-	unknown_bv_7	->	0010
+	unknown_bv_6	->	1111
+	unknown_bv_7	->	1110
 Constraints Not Satisified for HW: 2 and HD: 3
 Constraints Not Satisified for HW: 2 and HD: 4
+Constraints Not Satisified for HW: 3 and HD: 1
 Constraints Not Satisified for HW: 3 and HD: 2
 Constraints Satisified for HW: 3 and HD: 3
-	unknown_bv_4	->	1001
+	unknown_bv_4	->	0011
 	unknown_bv_5	->	0010
 	unknown_bv_2	->	0101
 	unknown_bv_8	->	1111
 	unknown_bv_3	->	0100
-	unknown_bv_0	->	1011
-	unknown_bv_1	->	1010
+	unknown_bv_0	->	1110
+	unknown_bv_1	->	1100
 	unknown_bv_6	->	0001
 	unknown_bv_7	->	0000
 Constraints Not Satisified for HW: 3 and HD: 4
+Constraints Not Satisified for HW: 4 and HD: 1
 Constraints Not Satisified for HW: 4 and HD: 2
 Constraints Not Satisified for HW: 4 and HD: 3
 Constraints Satisified for HW: 4 and HD: 4

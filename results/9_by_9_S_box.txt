@@ -1,357 +1,370 @@
+Constraints Not Satisified for HW: 1 and HD: 1
+Constraints Not Satisified for HW: 1 and HD: 2
+Constraints Not Satisified for HW: 1 and HD: 3
+Constraints Not Satisified for HW: 1 and HD: 4
+Constraints Not Satisified for HW: 1 and HD: 5
+Constraints Not Satisified for HW: 1 and HD: 6
+Constraints Not Satisified for HW: 1 and HD: 7
+Constraints Not Satisified for HW: 2 and HD: 1
 Constraints Not Satisified for HW: 2 and HD: 2
 Constraints Not Satisified for HW: 2 and HD: 3
 Constraints Not Satisified for HW: 2 and HD: 4
 Constraints Not Satisified for HW: 2 and HD: 5
 Constraints Not Satisified for HW: 2 and HD: 6
 Constraints Not Satisified for HW: 2 and HD: 7
+Constraints Not Satisified for HW: 3 and HD: 1
 Constraints Not Satisified for HW: 3 and HD: 2
 Constraints Satisified for HW: 3 and HD: 3
-	unknown_bv_74	->	0011110
-	unknown_bv_48	->	1110101
-	unknown_bv_25	->	1111101
-	unknown_bv_47	->	1111011
-	unknown_bv_14	->	0000101
-	unknown_bv_26	->	0010111
-	unknown_bv_60	->	0100110
-	unknown_bv_24	->	0110001
-	unknown_bv_31	->	0101011
+	unknown_bv_74	->	1011001
+	unknown_bv_48	->	1110110
+	unknown_bv_25	->	0110000
+	unknown_bv_14	->	0100100
+	unknown_bv_47	->	0011011
+	unknown_bv_26	->	0001001
+	unknown_bv_60	->	0100101
+	unknown_bv_24	->	0001011
+	unknown_bv_31	->	0110101
 	unknown_bv_7	->	0010010
-	unknown_bv_68	->	1110000
-	unknown_bv_70	->	1101100
-	unknown_bv_73	->	1011100
-	unknown_bv_76	->	1011010
+	unknown_bv_68	->	1101101
+	unknown_bv_70	->	1110010
+	unknown_bv_73	->	0011000
+	unknown_bv_76	->	1100110
 	unknown_bv_5	->	0001000
-	unknown_bv_16	->	0000011
-	unknown_bv_0	->	0000111
-	unknown_bv_6	->	1000011
-	unknown_bv_43	->	0001101
-	unknown_bv_30	->	1010010
-	unknown_bv_49	->	0111111
-	unknown_bv_54	->	0101100
-	unknown_bv_4	->	1100000
-	unknown_bv_8	->	0010100
-	unknown_bv_18	->	0110100
-	unknown_bv_64	->	1000111
-	unknown_bv_35	->	1101010
-	unknown_bv_27	->	1111111
-	unknown_bv_66	->	0010110
-	unknown_bv_42	->	1110010
-	unknown_bv_17	->	0000010
-	unknown_bv_56	->	1110100
-	unknown_bv_23	->	0110010
-	unknown_bv_32	->	0001100
-	unknown_bv_44	->	1000100
-	unknown_bv_37	->	1100110
-	unknown_bv_63	->	1011011
-	unknown_bv_21	->	1001101
-	unknown_bv_19	->	0001001
-	unknown_bv_51	->	0100101
-	unknown_bv_75	->	1111010
-	unknown_bv_52	->	0101101
-	unknown_bv_10	->	1000000
-	unknown_bv_29	->	0101111
-	unknown_bv_40	->	1101110
-	unknown_bv_41	->	1110001
-	unknown_bv_57	->	0011111
-	unknown_bv_69	->	1101111
-	unknown_bv_80	->	0100000
-	unknown_bv_34	->	1000110
-	unknown_bv_12	->	0011001
+	unknown_bv_16	->	0000101
+	unknown_bv_0	->	0001101
+	unknown_bv_6	->	0010000
+	unknown_bv_43	->	0000111
+	unknown_bv_30	->	1111100
+	unknown_bv_49	->	1100101
+	unknown_bv_54	->	1100100
+	unknown_bv_4	->	0001010
+	unknown_bv_8	->	0100010
+	unknown_bv_18	->	0000100
+	unknown_bv_64	->	1110001
+	unknown_bv_35	->	0111111
+	unknown_bv_27	->	1110011
+	unknown_bv_66	->	1110000
+	unknown_bv_42	->	1101001
+	unknown_bv_17	->	1000011
+	unknown_bv_56	->	0010001
+	unknown_bv_23	->	0101111
+	unknown_bv_32	->	0010100
+	unknown_bv_44	->	1111101
+	unknown_bv_37	->	0001100
+	unknown_bv_63	->	0110001
+	unknown_bv_21	->	0111100
+	unknown_bv_19	->	0000000
+	unknown_bv_51	->	0011111
+	unknown_bv_75	->	1011000
+	unknown_bv_52	->	0101110
+	unknown_bv_10	->	1011110
+	unknown_bv_29	->	0111011
+	unknown_bv_40	->	0000010
+	unknown_bv_41	->	0011101
+	unknown_bv_57	->	1011101
+	unknown_bv_69	->	1001000
+	unknown_bv_80	->	1100001
+	unknown_bv_34	->	0000001
+	unknown_bv_12	->	0111110
 	unknown_bv_71	->	1101011
-	unknown_bv_46	->	1100111
-	unknown_bv_11	->	1011001
-	unknown_bv_22	->	0001111
-	unknown_bv_77	->	1011000
-	unknown_bv_13	->	1001011
-	unknown_bv_61	->	1110111
-	unknown_bv_65	->	1001010
-	unknown_bv_1	->	0000110
-	unknown_bv_62	->	0100100
-	unknown_bv_72	->	1011110
-	unknown_bv_78	->	0011010
-	unknown_bv_38	->	0111100
-	unknown_bv_50	->	1100011
-	unknown_bv_33	->	0010000
-	unknown_bv_45	->	1101000
-	unknown_bv_67	->	1010000
-	unknown_bv_28	->	0000000
-	unknown_bv_36	->	1110110
-	unknown_bv_53	->	1111100
-	unknown_bv_58	->	0001011
-	unknown_bv_79	->	1010110
-	unknown_bv_15	->	1001001
-	unknown_bv_2	->	0011000
-	unknown_bv_20	->	0000001
-	unknown_bv_3	->	1100001
+	unknown_bv_46	->	0100011
+	unknown_bv_11	->	0100111
+	unknown_bv_22	->	1110111
+	unknown_bv_77	->	0010101
+	unknown_bv_13	->	1010101
+	unknown_bv_61	->	1011111
+	unknown_bv_65	->	0010011
+	unknown_bv_1	->	1000010
+	unknown_bv_62	->	1011100
+	unknown_bv_72	->	1010100
+	unknown_bv_78	->	1000000
+	unknown_bv_38	->	0000011
+	unknown_bv_50	->	1111000
+	unknown_bv_33	->	1110101
+	unknown_bv_45	->	0110111
+	unknown_bv_67	->	1000100
+	unknown_bv_28	->	1111110
+	unknown_bv_79	->	1111011
+	unknown_bv_36	->	1100111
+	unknown_bv_53	->	0011100
+	unknown_bv_58	->	1100010
+	unknown_bv_15	->	1111111
+	unknown_bv_2	->	1000001
+	unknown_bv_20	->	0111101
+	unknown_bv_3	->	0101001
 	unknown_bv_9	->	1001111
-	unknown_bv_39	->	1110011
-	unknown_bv_55	->	0011101
-	unknown_bv_59	->	1011111
+	unknown_bv_39	->	0101010
+	unknown_bv_55	->	0101101
+	unknown_bv_59	->	1011010
 Constraints Not Satisified for HW: 3 and HD: 4
 Constraints Not Satisified for HW: 3 and HD: 5
 Constraints Not Satisified for HW: 3 and HD: 6
 Constraints Not Satisified for HW: 3 and HD: 7
+Constraints Not Satisified for HW: 4 and HD: 1
 Constraints Not Satisified for HW: 4 and HD: 2
 Constraints Not Satisified for HW: 4 and HD: 3
 Constraints Satisified for HW: 4 and HD: 4
-	unknown_bv_74	->	0000001
-	unknown_bv_48	->	1111110
-	unknown_bv_25	->	0100000
-	unknown_bv_14	->	1000000
-	unknown_bv_47	->	1001001
+	unknown_bv_74	->	0011111
+	unknown_bv_48	->	1111101
+	unknown_bv_25	->	0001110
+	unknown_bv_14	->	0011001
+	unknown_bv_47	->	1101000
 	unknown_bv_26	->	0110100
-	unknown_bv_60	->	0010010
-	unknown_bv_24	->	1000001
-	unknown_bv_31	->	1010010
-	unknown_bv_7	->	1011110
-	unknown_bv_68	->	1111000
-	unknown_bv_70	->	0010011
-	unknown_bv_73	->	0000100
-	unknown_bv_76	->	1010001
-	unknown_bv_5	->	1101111
-	unknown_bv_16	->	1101000
-	unknown_bv_0	->	1011001
+	unknown_bv_60	->	0010111
+	unknown_bv_24	->	0000110
+	unknown_bv_31	->	1001010
+	unknown_bv_7	->	0101100
+	unknown_bv_68	->	0101101
+	unknown_bv_70	->	1110011
+	unknown_bv_73	->	0100011
+	unknown_bv_76	->	0100101
+	unknown_bv_5	->	0010010
+	unknown_bv_16	->	0101001
+	unknown_bv_0	->	1111000
 	unknown_bv_6	->	1001101
-	unknown_bv_43	->	1110010
-	unknown_bv_30	->	1111101
-	unknown_bv_49	->	0001011
-	unknown_bv_54	->	0101101
-	unknown_bv_4	->	0110010
-	unknown_bv_64	->	0011010
-	unknown_bv_8	->	1110000
-	unknown_bv_18	->	0100001
-	unknown_bv_35	->	1001111
-	unknown_bv_27	->	1010110
-	unknown_bv_66	->	1110100
-	unknown_bv_42	->	0010000
-	unknown_bv_17	->	1100000
-	unknown_bv_56	->	1110110
-	unknown_bv_23	->	1011010
-	unknown_bv_32	->	1000101
-	unknown_bv_44	->	0110111
-	unknown_bv_37	->	0001000
-	unknown_bv_63	->	1011100
-	unknown_bv_21	->	0111110
-	unknown_bv_19	->	1100001
-	unknown_bv_51	->	1101010
-	unknown_bv_75	->	1010000
+	unknown_bv_43	->	1101100
+	unknown_bv_30	->	0000000
+	unknown_bv_49	->	0001000
+	unknown_bv_54	->	0011101
+	unknown_bv_4	->	1010010
+	unknown_bv_8	->	0100110
+	unknown_bv_18	->	0110101
+	unknown_bv_64	->	1101011
+	unknown_bv_35	->	1111010
+	unknown_bv_27	->	1000001
+	unknown_bv_66	->	0001001
+	unknown_bv_42	->	0000100
+	unknown_bv_17	->	1100011
+	unknown_bv_56	->	0000001
+	unknown_bv_23	->	0110000
+	unknown_bv_32	->	0010101
+	unknown_bv_37	->	1001111
+	unknown_bv_44	->	1000110
+	unknown_bv_63	->	0001100
+	unknown_bv_21	->	0000010
+	unknown_bv_19	->	0100000
+	unknown_bv_51	->	0010100
+	unknown_bv_75	->	1110001
 	unknown_bv_52	->	0101111
-	unknown_bv_10	->	1011111
-	unknown_bv_29	->	0001010
-	unknown_bv_40	->	0000011
-	unknown_bv_41	->	0000010
-	unknown_bv_57	->	0010100
-	unknown_bv_69	->	1011000
-	unknown_bv_80	->	1100110
-	unknown_bv_34	->	1001000
+	unknown_bv_10	->	1011001
+	unknown_bv_29	->	0101110
+	unknown_bv_40	->	1101111
+	unknown_bv_41	->	1110101
+	unknown_bv_57	->	0000011
+	unknown_bv_69	->	0010000
+	unknown_bv_80	->	1110111
+	unknown_bv_34	->	1010000
 	unknown_bv_12	->	1000111
-	unknown_bv_71	->	1101100
-	unknown_bv_46	->	0110101
-	unknown_bv_11	->	1100111
-	unknown_bv_22	->	1000011
-	unknown_bv_77	->	0100111
-	unknown_bv_13	->	0100110
-	unknown_bv_61	->	0001110
-	unknown_bv_65	->	1111011
-	unknown_bv_1	->	0010110
-	unknown_bv_62	->	1101101
-	unknown_bv_72	->	1010011
-	unknown_bv_78	->	1100101
-	unknown_bv_38	->	1110101
-	unknown_bv_50	->	1000110
-	unknown_bv_33	->	0000110
-	unknown_bv_45	->	0000000
-	unknown_bv_67	->	1111001
-	unknown_bv_28	->	1001010
-	unknown_bv_36	->	0001111
-	unknown_bv_53	->	0011000
-	unknown_bv_58	->	1100011
-	unknown_bv_79	->	0100011
-	unknown_bv_15	->	0100100
-	unknown_bv_2	->	0110001
+	unknown_bv_71	->	1100000
+	unknown_bv_46	->	1101001
+	unknown_bv_11	->	1011000
+	unknown_bv_22	->	0110001
+	unknown_bv_77	->	0011000
+	unknown_bv_13	->	1000000
+	unknown_bv_61	->	1100001
+	unknown_bv_65	->	1100110
+	unknown_bv_1	->	1001100
+	unknown_bv_62	->	1011101
+	unknown_bv_72	->	1010101
+	unknown_bv_78	->	0000101
+	unknown_bv_38	->	1000011
+	unknown_bv_50	->	1111100
+	unknown_bv_33	->	1010011
+	unknown_bv_45	->	1111110
+	unknown_bv_67	->	1010100
+	unknown_bv_28	->	0001011
+	unknown_bv_36	->	1001110
+	unknown_bv_53	->	0011110
+	unknown_bv_58	->	1110100
+	unknown_bv_79	->	0010110
+	unknown_bv_15	->	1000100
+	unknown_bv_2	->	1000101
 	unknown_bv_20	->	1000010
-	unknown_bv_3	->	1110001
-	unknown_bv_9	->	0110000
+	unknown_bv_3	->	0110110
+	unknown_bv_9	->	0100100
 	unknown_bv_39	->	1001011
-	unknown_bv_55	->	0011100
-	unknown_bv_59	->	1100010
+	unknown_bv_55	->	1100100
+	unknown_bv_59	->	1110000
 Constraints Not Satisified for HW: 4 and HD: 5
 Constraints Not Satisified for HW: 4 and HD: 6
 Constraints Not Satisified for HW: 4 and HD: 7
+Constraints Not Satisified for HW: 5 and HD: 1
 Constraints Not Satisified for HW: 5 and HD: 2
 Constraints Not Satisified for HW: 5 and HD: 3
 Constraints Not Satisified for HW: 5 and HD: 4
 Constraints Satisified for HW: 5 and HD: 5
-	unknown_bv_74	->	0000101
-	unknown_bv_48	->	0011111
-	unknown_bv_25	->	1000100
+	unknown_bv_74	->	0100001
+	unknown_bv_48	->	1001010
+	unknown_bv_25	->	1100011
 	unknown_bv_14	->	1100101
-	unknown_bv_47	->	0000000
+	unknown_bv_47	->	1000100
 	unknown_bv_26	->	0110101
-	unknown_bv_60	->	1110011
-	unknown_bv_24	->	0000111
+	unknown_bv_60	->	0010011
+	unknown_bv_24	->	1100010
 	unknown_bv_31	->	0110000
-	unknown_bv_7	->	1100000
-	unknown_bv_68	->	1011011
+	unknown_bv_7	->	1010000
+	unknown_bv_68	->	0101111
 	unknown_bv_70	->	0011000
-	unknown_bv_73	->	0011110
-	unknown_bv_76	->	0100010
-	unknown_bv_5	->	1001010
-	unknown_bv_16	->	1001011
-	unknown_bv_0	->	1101110
+	unknown_bv_73	->	0100010
+	unknown_bv_76	->	1110001
+	unknown_bv_5	->	0110010
+	unknown_bv_16	->	1001110
+	unknown_bv_0	->	1111001
 	unknown_bv_6	->	0101001
-	unknown_bv_43	->	1000000
-	unknown_bv_30	->	0000001
-	unknown_bv_49	->	1000010
+	unknown_bv_43	->	0010000
+	unknown_bv_30	->	0110001
+	unknown_bv_49	->	1001011
 	unknown_bv_54	->	0011001
-	unknown_bv_4	->	1101111
-	unknown_bv_8	->	1011111
-	unknown_bv_18	->	0111101
+	unknown_bv_4	->	0101011
+	unknown_bv_8	->	0110110
+	unknown_bv_18	->	1100111
 	unknown_bv_64	->	0101101
 	unknown_bv_35	->	1010110
 	unknown_bv_27	->	0110100
-	unknown_bv_66	->	1101101
-	unknown_bv_42	->	0010100
-	unknown_bv_17	->	0111110
-	unknown_bv_56	->	1110111
-	unknown_bv_23	->	1100010
-	unknown_bv_32	->	0011011
-	unknown_bv_44	->	0000011
-	unknown_bv_37	->	1001110
+	unknown_bv_66	->	1011101
+	unknown_bv_42	->	0000101
+	unknown_bv_17	->	0101010
+	unknown_bv_56	->	0010111
+	unknown_bv_23	->	1000000
+	unknown_bv_32	->	0001111
+	unknown_bv_37	->	0001010
+	unknown_bv_44	->	0010001
 	unknown_bv_63	->	1110000
 	unknown_bv_21	->	0111010
-	unknown_bv_19	->	1101001
-	unknown_bv_51	->	0001000
-	unknown_bv_75	->	0011100
+	unknown_bv_19	->	1001000
+	unknown_bv_51	->	1111100
+	unknown_bv_75	->	1010100
 	unknown_bv_52	->	0001001
-	unknown_bv_10	->	0110001
+	unknown_bv_10	->	0100101
 	unknown_bv_29	->	0000010
 	unknown_bv_40	->	1010001
-	unknown_bv_41	->	1010011
+	unknown_bv_41	->	0010010
 	unknown_bv_57	->	1000011
-	unknown_bv_69	->	0101110
-	unknown_bv_80	->	1100111
-	unknown_bv_34	->	0001101
-	unknown_bv_12	->	0100011
-	unknown_bv_71	->	0110010
-	unknown_bv_46	->	0010000
-	unknown_bv_11	->	0100100
-	unknown_bv_22	->	1001000
-	unknown_bv_77	->	0100000
+	unknown_bv_69	->	0101000
+	unknown_bv_80	->	0001110
+	unknown_bv_34	->	1010111
+	unknown_bv_12	->	1010010
+	unknown_bv_71	->	1011000
+	unknown_bv_46	->	1000101
+	unknown_bv_11	->	0010100
+	unknown_bv_22	->	1100000
+	unknown_bv_77	->	0100110
 	unknown_bv_13	->	1100110
-	unknown_bv_61	->	0010010
-	unknown_bv_65	->	0101100
+	unknown_bv_61	->	1110010
+	unknown_bv_65	->	0010110
 	unknown_bv_1	->	1011100
-	unknown_bv_62	->	0010001
-	unknown_bv_72	->	0010101
-	unknown_bv_78	->	1100001
+	unknown_bv_62	->	0000000
+	unknown_bv_72	->	1110011
+	unknown_bv_78	->	0000001
 	unknown_bv_38	->	1001101
 	unknown_bv_50	->	1000111
-	unknown_bv_33	->	1010100
+	unknown_bv_33	->	1001100
 	unknown_bv_45	->	1000110
-	unknown_bv_67	->	0111001
-	unknown_bv_28	->	0100001
-	unknown_bv_79	->	1010000
+	unknown_bv_67	->	0001100
+	unknown_bv_28	->	1000001
 	unknown_bv_36	->	0001011
-	unknown_bv_53	->	0011010
-	unknown_bv_58	->	0000100
-	unknown_bv_15	->	1011000
-	unknown_bv_2	->	1110100
+	unknown_bv_53	->	1111010
+	unknown_bv_58	->	0010101
+	unknown_bv_79	->	0100100
+	unknown_bv_15	->	0100000
+	unknown_bv_2	->	0011101
 	unknown_bv_20	->	1001001
-	unknown_bv_3	->	1111001
-	unknown_bv_9	->	0010110
-	unknown_bv_39	->	1001100
-	unknown_bv_55	->	1111000
-	unknown_bv_59	->	1000001
+	unknown_bv_59	->	1110100
+	unknown_bv_9	->	1100100
+	unknown_bv_39	->	0001000
+	unknown_bv_3	->	1110110
+	unknown_bv_55	->	1000010
 Constraints Not Satisified for HW: 5 and HD: 6
 Constraints Not Satisified for HW: 5 and HD: 7
+Constraints Not Satisified for HW: 6 and HD: 1
 Constraints Not Satisified for HW: 6 and HD: 2
 Constraints Not Satisified for HW: 6 and HD: 3
 Constraints Not Satisified for HW: 6 and HD: 4
 Constraints Not Satisified for HW: 6 and HD: 5
 Constraints Satisified for HW: 6 and HD: 6
-	unknown_bv_74	->	0010101
-	unknown_bv_48	->	1001101
-	unknown_bv_25	->	0100110
-	unknown_bv_14	->	1110000
-	unknown_bv_47	->	1000000
-	unknown_bv_26	->	0100101
-	unknown_bv_60	->	1000010
-	unknown_bv_24	->	0100111
-	unknown_bv_31	->	0100000
-	unknown_bv_7	->	0111000
-	unknown_bv_68	->	0101011
+	unknown_bv_74	->	1110101
+	unknown_bv_48	->	1000111
+	unknown_bv_25	->	1000110
+	unknown_bv_14	->	1010001
+	unknown_bv_47	->	0010000
 	unknown_bv_70	->	0011001
+	unknown_bv_26	->	1100001
+	unknown_bv_24	->	0100111
+	unknown_bv_31	->	1000000
+	unknown_bv_7	->	1101000
+	unknown_bv_60	->	0000011
+	unknown_bv_68	->	0111010
 	unknown_bv_73	->	0110010
-	unknown_bv_76	->	0110001
-	unknown_bv_5	->	0111010
-	unknown_bv_16	->	1001111
-	unknown_bv_0	->	1111101
-	unknown_bv_6	->	1101001
-	unknown_bv_43	->	0010100
-	unknown_bv_30	->	1000001
+	unknown_bv_76	->	0100011
+	unknown_bv_5	->	1101010
+	unknown_bv_16	->	1100111
+	unknown_bv_0	->	1111011
+	unknown_bv_6	->	1110001
+	unknown_bv_43	->	1010000
+	unknown_bv_30	->	0100001
 	unknown_bv_49	->	0001110
 	unknown_bv_54	->	0001001
-	unknown_bv_4	->	1101011
-	unknown_bv_8	->	1110011
-	unknown_bv_18	->	0101101
-	unknown_bv_64	->	0111101
-	unknown_bv_35	->	0011100
+	unknown_bv_4	->	1011011
+	unknown_bv_8	->	0110111
+	unknown_bv_18	->	1101100
+	unknown_bv_64	->	0111110
+	unknown_bv_35	->	1001100
 	unknown_bv_27	->	0100100
 	unknown_bv_66	->	0111001
-	unknown_bv_42	->	1000101
-	unknown_bv_17	->	1100110
-	unknown_bv_56	->	1000110
-	unknown_bv_23	->	1100000
-	unknown_bv_32	->	1011011
-	unknown_bv_44	->	1000011
-	unknown_bv_37	->	1010010
+	unknown_bv_42	->	0010101
+	unknown_bv_17	->	1001110
+	unknown_bv_56	->	0000111
+	unknown_bv_23	->	1001000
+	unknown_bv_32	->	1001111
+	unknown_bv_44	->	0010011
+	unknown_bv_37	->	1001010
 	unknown_bv_63	->	0000000
-	unknown_bv_21	->	0101010
-	unknown_bv_19	->	1001100
-	unknown_bv_51	->	0001100
+	unknown_bv_21	->	1100010
+	unknown_bv_19	->	1100100
+	unknown_bv_51	->	1000100
 	unknown_bv_75	->	1110100
 	unknown_bv_52	->	1001001
-	unknown_bv_10	->	0110101
-	unknown_bv_29	->	0100010
-	unknown_bv_40	->	1010110
-	unknown_bv_41	->	1010100
+	unknown_bv_10	->	1100101
+	unknown_bv_29	->	1000010
+	unknown_bv_40	->	0010111
+	unknown_bv_41	->	0010110
 	unknown_bv_57	->	0000110
-	unknown_bv_69	->	0011010
+	unknown_bv_69	->	1111010
 	unknown_bv_80	->	0001111
-	unknown_bv_34	->	1010101
-	unknown_bv_12	->	1010011
-	unknown_bv_71	->	0011000
-	unknown_bv_46	->	1010000
-	unknown_bv_11	->	1100100
-	unknown_bv_22	->	1101000
-	unknown_bv_77	->	1110010
-	unknown_bv_13	->	1100010
+	unknown_bv_34	->	1011001
+	unknown_bv_12	->	1100011
+	unknown_bv_71	->	0101000
+	unknown_bv_46	->	0010001
+	unknown_bv_11	->	0110100
+	unknown_bv_22	->	0101001
+	unknown_bv_77	->	0100010
+	unknown_bv_13	->	1110000
 	unknown_bv_61	->	0000010
-	unknown_bv_65	->	0011110
-	unknown_bv_1	->	1110110
+	unknown_bv_65	->	0111100
+	unknown_bv_1	->	1101110
 	unknown_bv_62	->	0000001
-	unknown_bv_72	->	0010111
-	unknown_bv_78	->	0010001
+	unknown_bv_72	->	0110101
+	unknown_bv_78	->	0110000
 	unknown_bv_38	->	1011000
-	unknown_bv_50	->	0001101
-	unknown_bv_33	->	1001110
+	unknown_bv_50	->	1000101
+	unknown_bv_33	->	1011100
 	unknown_bv_45	->	0010010
-	unknown_bv_67	->	0110100
-	unknown_bv_28	->	1100001
-	unknown_bv_36	->	1001011
+	unknown_bv_67	->	0101100
+	unknown_bv_28	->	1000011
+	unknown_bv_36	->	1010011
 	unknown_bv_53	->	0001010
-	unknown_bv_58	->	1000100
-	unknown_bv_79	->	0010000
-	unknown_bv_15	->	0110000
+	unknown_bv_58	->	1000001
+	unknown_bv_79	->	0100000
+	unknown_bv_15	->	1100000
 	unknown_bv_2	->	1011101
-	unknown_bv_20	->	1101010
-	unknown_bv_3	->	0111100
-	unknown_bv_9	->	0110110
-	unknown_bv_39	->	1001000
+	unknown_bv_20	->	1101001
+	unknown_bv_3	->	1111000
+	unknown_bv_9	->	1110010
+	unknown_bv_39	->	0011000
 	unknown_bv_55	->	0001000
 	unknown_bv_59	->	0000100
 Constraints Not Satisified for HW: 6 and HD: 7
+Constraints Not Satisified for HW: 7 and HD: 1
 Constraints Not Satisified for HW: 7 and HD: 2
 Constraints Not Satisified for HW: 7 and HD: 3
 Constraints Not Satisified for HW: 7 and HD: 4
@@ -364,13 +377,13 @@ Constraints Satisified for HW: 7 and HD: 7
 	unknown_bv_14	->	1110001
 	unknown_bv_47	->	1010000
 	unknown_bv_26	->	1100101
-	unknown_bv_60	->	1000011
+	unknown_bv_73	->	0110110
 	unknown_bv_24	->	1100111
 	unknown_bv_31	->	1100000
 	unknown_bv_7	->	1111000
+	unknown_bv_60	->	1000011
 	unknown_bv_68	->	0111011
 	unknown_bv_70	->	0111001
-	unknown_bv_73	->	0110110
 	unknown_bv_76	->	0110011
 	unknown_bv_5	->	1111010
 	unknown_bv_16	->	1101111
@@ -401,12 +414,12 @@ Constraints Satisified for HW: 7 and HD: 7
 	unknown_bv_75	->	0110100
 	unknown_bv_52	->	1001011
 	unknown_bv_10	->	1110101
-	unknown_bv_80	->	0101111
 	unknown_bv_29	->	1100010
 	unknown_bv_40	->	1010111
 	unknown_bv_41	->	1010110
 	unknown_bv_57	->	1000110
 	unknown_bv_69	->	0111010
+	unknown_bv_80	->	0101111
 	unknown_bv_34	->	1011101
 	unknown_bv_12	->	1110011
 	unknown_bv_71	->	0111000
@@ -428,8 +441,8 @@ Constraints Satisified for HW: 7 and HD: 7
 	unknown_bv_67	->	0111100
 	unknown_bv_28	->	1100011
 	unknown_bv_36	->	1011011
-	unknown_bv_58	->	1000101
 	unknown_bv_53	->	1001010
+	unknown_bv_58	->	1000101
 	unknown_bv_79	->	0110000
 	unknown_bv_15	->	1110000
 	unknown_bv_2	->	1111101
