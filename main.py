@@ -222,42 +222,77 @@ def validate_complement(s_box, s_box_complement, d_weight, d_distance):
             return False
     return True
 
+def flip_bitvec_index(bv, index):
+    """
+    Flips the bits at a single selected location of a bitvector
+
+    :param bv: Bitvector that will have its bit flipped
+    :param index: Index at which the bit will be flipped
+    """
+    # Grab the bit:
+    value_at_index = simplify(Extract(index, index, bv))
+
+    # Based on its value, flip it (by addition or subtraction)
+    match value_at_index:
+        case 0:
+            flipped_bv = bv + 2**index
+        case 1: 
+            flipped_bv = bv - 2**index
+        # An error occurred, the bit at the index was not a zero or one
+        case _:
+            print("ERROR: Not a zero or one at index: {index}".format(index))
+            return
+    return flipped_bv
+
+
 def flip_bitvec(bv, indices):
     """
     Flips the bits at selected locations of a bitvector
+
+    :param bv: Bitvector that will have its bits flipped
+    :param indices: List of indices which will have its bits flipped
     """
-    flips = []
+    flipped_bv = bv
+
+    # Flip each index one at a time
     for index in indices:
-        flips.append(Extract(index, index, bv))
+        flipped_bv = flip_bitvec_index(flipped_bv, index)
+    return flipped_bv
 
 def create_complements(n, filename):
+    """
+    Creates complements for the n by n s-box and outputs the results in filename
+
+    :param n: The dimension for the n by n s-box
+    :param filename: The name of the file to output the results
+    """
     with open(filename, "w") as f:
         elements = n**2
         bits = ceil(log2(elements))
 
         ones_vector = BitVecVal(2**bits - 1, bits)
-        # extra_element_range = bits/2
-        print(f"ones vector: {ones_vector}")
         for weight_dist in range(bits, 0, -1):
             weight = weight_dist
             distance = weight_dist
 
-            # Creating "added vector"
-            add_val = 0
-            # if (bits-weight_dist <= bits/2):
-            #     for i in range(bits-weight_dist):
-            #         add_val += 2**(bits - 2*(i+1) + 1)
-            add_vector = BitVecVal(add_val, bits)
-            # print('{encode_comp:0{fieldsize}b}'.format(encode_comp=add_val, fieldsize=bits))
+            # Creating "flipped vector"
+            indices = []
 
+            # Only gets one half of the bits (square root of 2^bits)
+            if (bits-weight_dist <= bits/2):
+                for i in range(bits-weight_dist):
+                    indices.append(bits - 2*i - 1)
+
+            # Taking 
             s_box_bvs = []
             for i in range(elements):
                 bv = BitVecVal(i, bits)
                 s_box_bvs.append(bv)
             
+            # Generate the complement (From observations)
             complement_s_box_bvs = []
             for i in range(elements):
-                value = simplify(add_vector + ones_vector - s_box_bvs[i])
+                value = simplify(flip_bitvec(ones_vector - s_box_bvs[i], indices))
                 bv = BitVecVal(value, bits)
                 complement_s_box_bvs.append(bv)
 
@@ -272,16 +307,13 @@ def create_complements(n, filename):
                 s.add(Hamming_Distance(s_box_bvs[i], complement_s_box_bvs[i]) == distance)
 
             if(s.check() == sat):
-                print("Constraints Satisified for HW: %d and HD: %d" %(weight, distance)),
-                m = s.model()
+                print("Constraints Satisified for HW: %d and HD: %d" %(weight, distance), file=f),
+                # m = s.model()
                 for i in range(elements):
-                    print('\t{s_box_elt}\t->\t{encode_comp:0{fieldsize}b}'.format(s_box_elt=s_box_bvs[i], encode_comp=complement_s_box_bvs[i].as_long(), fieldsize=bits))
-                # for d in m.decls():
-                #     print('\t{state}\t->\t{encode:0{fieldsize}b}'.format(state=d.name(),encode=m[d].as_long(),fieldsize=bits))
+                    print('\t{s_box_elt}: {s_box_elt:0{fieldsize}b}\t->\t{encode_comp:0{fieldsize}b}'\
+                          .format(s_box_elt=s_box_bvs[i].as_long(), encode_comp=complement_s_box_bvs[i].as_long(), fieldsize=bits), file=f)
             else:
-                print("Constraints Not Satisified for HW: %d and HD: %d" %(weight, distance))
-                # for i in range(elements):
-                #     print('\t{s_box_elt}\t->\t{encode_comp:0{fieldsize}b}'.format(s_box_elt=s_box_bvs[i], encode_comp=complement_s_box_bvs[i].as_long(), fieldsize=bits))
+                print("Constraints Not Satisified for HW: %d and HD: %d" %(weight, distance), file=f)
                 sys.stdout.flush()
     return
 
@@ -289,9 +321,13 @@ def main():
     # Generates the n by n s_box possibilities and prints the results to a file
     # COMMENT OUT IF YOU WANT TO REGENERATE
     # for n in range(2, 17):
-    #     filename = f"results/{n}_by_{n}_S_box.txt"
+    #     filename = f"results/z3_exhaustive/{n}_by_{n}_S_box.txt"
     #     n_by_n_s_box_unknown(n, filename)
-    create_complements(3, "test.txt")
+
+    # Create complements for n by n matrices
+    for n in range(2, 17):
+        filename = f"results/generative/{n}_by_{n}_S_box.txt"
+        create_complements(n, filename)
 
     # s_box = [element for element in s_box_def()]
 
