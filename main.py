@@ -1,6 +1,8 @@
 from math import *
 from z3 import *
 import re
+import pickle
+import os
 
 def MatrixFromSquareArray(square_arr):
     """
@@ -124,7 +126,6 @@ def create_s_box_complement(s_box, weight):
 
     known_bvs = []
     for i in range(elements):
-        # name = f"known_bv_{row}_{col}".format(row=i%n, col = floor(i/n))
         bv = BitVecVal(s_box[i], bits)
         known_bvs.append(bv)
 
@@ -283,7 +284,7 @@ def create_complements(n, filename):
                 for i in range(bits-weight_dist):
                     indices.append(bits - 2*i - 1)
 
-            # Taking 
+            # Taking each value possible
             s_box_bvs = []
             for i in range(elements):
                 bv = BitVecVal(i, bits)
@@ -308,7 +309,6 @@ def create_complements(n, filename):
 
             if(s.check() == sat):
                 print("Constraints Satisified for HW: %d and HD: %d" %(weight, distance), file=f),
-                # m = s.model()
                 for i in range(elements):
                     print('\t{s_box_elt}: {s_box_elt:0{fieldsize}b}\t->\t{encode_comp:0{fieldsize}b}'\
                           .format(s_box_elt=s_box_bvs[i].as_long(), encode_comp=complement_s_box_bvs[i].as_long(), fieldsize=bits), file=f)
@@ -316,6 +316,78 @@ def create_complements(n, filename):
                 print("Constraints Not Satisified for HW: %d and HD: %d" %(weight, distance), file=f)
                 sys.stdout.flush()
     return
+
+def pickle_generated_complements(n, s_box):
+    """
+    Generates a complement s-box, and pickles its results.
+    Uses the same creation as create_complements
+
+    :param n: The dimension of the n by n s-box
+    :param s_box: The s_box which will have its complements generated for
+    :param pickle_filename: The name for the pickled s-box object to be taken from
+    """
+    elements = n**2
+    bits = ceil(log2(elements))
+
+    ones_vector = BitVecVal(2**bits - 1, bits)
+    for weight_dist in range(bits, 0, -1):
+        s_box_complement = [0 for _ in range(256)]
+        
+        weight = weight_dist
+        distance = weight_dist
+
+        # Creating "flipped vector"
+        indices = []
+
+        # Only gets one half of the bits (square root of 2^bits)
+        if (bits-weight_dist <= bits/2):
+            for i in range(bits-weight_dist):
+                indices.append(bits - 2*i - 1)
+
+        # Taking each value possible
+        s_box_bvs = []
+        for i in range(elements):
+            bv = BitVecVal(s_box[i], bits)
+            s_box_bvs.append(bv)
+        
+        # Generate the complement (From observations)
+        complement_s_box_bvs = []
+        for i in range(elements):
+            value = simplify(flip_bitvec(ones_vector - s_box_bvs[i], indices))
+            bv = BitVecVal(value, bits)
+            complement_s_box_bvs.append(bv)
+
+        s = Solver();
+        s.set("timeout", 1000000)
+
+        s.add(Distinct(*complement_s_box_bvs))
+
+        # Hamming Weight and Hamming Distance check
+        for i in range(len(s_box_bvs)):
+            s.add(Hamming_Weight(s_box_bvs[i] + complement_s_box_bvs[i]) == weight)
+            s.add(Hamming_Distance(s_box_bvs[i], complement_s_box_bvs[i]) == distance)
+
+        if(s.check() == sat):
+            print("Constraints Satisified for HW: %d and HD: %d, pickling the complement." %(weight, distance)),
+            for i in range(elements):
+                s_box_complement[i] = complement_s_box_bvs[i].as_long()
+            
+
+            pickle_directory = f"complements/{n}_by_{n}/"
+
+            # Create directory for complements if not existing:
+            try:
+                os.makedirs(pickle_directory)
+                pickle_filename = pickle_directory + f"{weight_dist}_weight_dist.pkl"
+            except FileExistsError:
+                pickle_filename = pickle_directory + f"{weight_dist}_weight_dist.pkl"
+
+            with open(pickle_filename, "wb+") as f:
+                pickle.dump(s_box_complement, f)
+        else:
+            print("Constraints Not Satisified for HW: %d and HD: %d. No pickling performed" %(weight, distance))
+            sys.stdout.flush()
+
 
 def main():
     # Generates the n by n s_box possibilities and prints the results to a file
@@ -329,17 +401,29 @@ def main():
         filename = f"results/generative/{n}_by_{n}_S_box.txt"
         create_complements(n, filename)
 
-    # s_box = [element for element in s_box_def()]
+    s_box = s_box_def()
 
-    # s_box_complement = potential_s_box_complement()
+    n = 16
+    bits = ceil(log2(n**2))
+    pickle_generated_complements(n, s_box)
 
-    # if (validate_complement(s_box, s_box_complement, 4, 4)):
-    #     print("Found a successful complement to s_box:")
-    #     print_matrix(MatrixFromSquareArray(s_box))
-    #     print("\nWith complement:")
-    #     print_matrix(MatrixFromSquareArray(s_box_complement))
-    # else:
-    #     print("Something was created wrong. The test failed.")
+    print("Here is our s_box:")
+    print_matrix(MatrixFromSquareArray(s_box))
+    for weight_dist in range(1, bits + 1):
+        pickle_filename = f"complements/{n}_by_{n}/{weight_dist}_weight_dist.pkl"
+
+        try:
+            with open(pickle_filename, "rb") as f:
+                s_box_complement = pickle.load(f)
+        except FileNotFoundError:
+            print(f"\nThere is no complement with HW: {weight_dist} and HD: {weight_dist}")
+            continue
+
+        if (validate_complement(s_box, s_box_complement, weight_dist, weight_dist)):
+            print(f"\nComplement s-box with HW: {weight_dist} and HD: {weight_dist}")
+            print_matrix(MatrixFromSquareArray(s_box_complement))
+        else:
+            print("Something was created wrong. The test failed.")
     return
 
 if __name__ == "__main__":
