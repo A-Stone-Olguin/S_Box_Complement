@@ -14,3 +14,10 @@ That is, let
 Then
 
   Hamming_Weight(*S[i]* + *C[i]*) = *w* AND Hamming_Distance(*S[i]*, *C[i]*) = *d*
+
+# How to Run
+To run this project, simply run:
+```
+pip install -r requirements.txt
+python3 main.py
+```
