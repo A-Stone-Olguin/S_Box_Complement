@@ -26,7 +26,12 @@ def print_matrix(matrix):
     :param matrix: An m-sized array of n-sized arrays.
     """
     for row in matrix:
-        print(row)
+        formatted_row = ["{0: >3}".format(i) for i in row]
+        row_string = "["
+        for i in range(len(formatted_row)-1):
+            row_string += formatted_row[i] + ", "
+        row_string += formatted_row[len(formatted_row)-1] + "]"
+        print(row_string)
     
 def IntCeilLog2(val): return int(ceil(log2(val)))
 
