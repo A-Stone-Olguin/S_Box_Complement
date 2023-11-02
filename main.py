@@ -3,6 +3,7 @@ from z3 import *
 import re
 import pickle
 import os
+from tqdm import trange
 
 def MatrixFromSquareArray(square_arr):
     """
@@ -402,18 +403,23 @@ def main():
     #     n_by_n_s_box_unknown(n, filename)
 
     # Create complements for n by n matrices
-    for n in range(2, 17):
+    print("Generating the complements:")
+    for n in trange(2, 17):
         filename = f"results/generative/{n}_by_{n}_S_box.txt"
         create_complements(n, filename)
+    print("Finshed generating the complements:\n")
 
     s_box = s_box_def()
+    print("Here is our s_box:")
+    print_matrix(MatrixFromSquareArray(s_box))
 
     n = 16
     bits = ceil(log2(n**2))
-    pickle_generated_complements(n, s_box)
 
-    print("Here is our s_box:")
-    print_matrix(MatrixFromSquareArray(s_box))
+    print("\n\nGenerating and Pickling the complements for the s_box:")
+    pickle_generated_complements(n, s_box)
+    print("Finished generating and Pickling the complements for the s_box\n\n")
+
     for weight_dist in range(1, bits + 1):
         pickle_filename = f"complements/{n}_by_{n}/{weight_dist}_weight_dist.pkl"
 
