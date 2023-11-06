@@ -1,2 +1,4 @@
 complements/
 __pycache__/
+/build
+/lake-packages/*
