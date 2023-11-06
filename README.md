@@ -21,3 +21,23 @@ To run this project, simply run:
 pip install -r requirements.txt
 python3 main.py
 ```
+
+# Verification in Lean
+This project has some verification using Lean4. 
+Here's how to set it up using the community project, Lean4.
+
+## Setting up Lean
+Make sure Lean is set up for your Operating System. 
+
+- run `lake update` in the terminal
+  - There might be some warnings about package configuration errors, caused by an incorrect toolchain version. This will be fixed in the next step.
+  
+- In the terminal, run `cp lake-packages/mathlib/lean-toolchain .` to make sure current Lean version matches mathlib4's.
+
+- Run `lake update` again, there should not be any errors now.
+
+- (Optionally) run `lake exe cache get` in the terminal to save time compiling mathlib and its dependencies
+
+- Run `lake build` in the terminal
+
+- Restart your instance of your IDE (VSCode, Emacs...)
