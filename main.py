@@ -4,6 +4,7 @@ import re
 import pickle
 import os
 from tqdm import trange
+from sbox_nonlinearity import sboxNonlinearity
 
 def MatrixFromSquareArray(square_arr):
     """
@@ -396,12 +397,6 @@ def pickle_generated_complements(n, s_box):
 
 
 def main():
-    # Generates the n by n s_box possibilities and prints the results to a file
-    # COMMENT OUT IF YOU WANT TO REGENERATE
-    # for n in range(2, 17):
-    #     filename = f"results/z3_exhaustive/{n}_by_{n}_S_box.txt"
-    #     n_by_n_s_box_unknown(n, filename)
-
     # Create complements for n by n matrices
     print("Generating the complements:")
     for n in trange(2, 17):
@@ -412,6 +407,9 @@ def main():
     s_box = s_box_def()
     print("Here is our s_box:")
     print_matrix(MatrixFromSquareArray(s_box))
+
+    print("Calculating tinyAES nonlinearity, will take a while:")
+    print("tinyAES nonlinearity (min, max)", sboxNonlinearity(s_box))
 
     n = 16
     bits = ceil(log2(n**2))
@@ -433,8 +431,11 @@ def main():
         if (validate_complement(s_box, s_box_complement, weight_dist, weight_dist)):
             print(f"\nComplement s-box with HW: {weight_dist} and HD: {weight_dist}")
             print_matrix(MatrixFromSquareArray(s_box_complement))
+            print(f"Calculating nonlinearity for weight_dist {weight_dist}, will take a while")
+            print("s_box weight_dist {weight_dist} nonlinearity: (min, max)", sboxNonlinearity(s_box_complement))
         else:
             print("Something was created wrong. The test failed.")
+
     return
 
 if __name__ == "__main__":
