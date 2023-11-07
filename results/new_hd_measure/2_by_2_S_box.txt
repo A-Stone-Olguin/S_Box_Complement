@@ -1,0 +1,35 @@
+Constraints Not Satisified for HW: 0 and HD1: 0 and HD2: 0
+Constraints Not Satisified for HW: 0 and HD1: 0 and HD2: 1
+Constraints Not Satisified for HW: 0 and HD1: 0 and HD2: 2
+Constraints Not Satisified for HW: 0 and HD1: 1 and HD2: 0
+Constraints Not Satisified for HW: 0 and HD1: 1 and HD2: 1
+Constraints Not Satisified for HW: 0 and HD1: 1 and HD2: 2
+Constraints Not Satisified for HW: 0 and HD1: 2 and HD2: 0
+Constraints Not Satisified for HW: 0 and HD1: 2 and HD2: 1
+Constraints Not Satisified for HW: 0 and HD1: 2 and HD2: 2
+Constraints Not Satisified for HW: 1 and HD1: 0 and HD2: 0
+Constraints Not Satisified for HW: 1 and HD1: 0 and HD2: 1
+Constraints Not Satisified for HW: 1 and HD1: 0 and HD2: 2
+Constraints Satisified for HW: 1 and HD1: 1 and HD2: 0
+	unknown_bv_3	->	10
+	unknown_bv_2	->	11
+	unknown_bv_0	->	01
+	unknown_bv_1	->	00
+Constraints Not Satisified for HW: 1 and HD1: 1 and HD2: 1
+Constraints Not Satisified for HW: 1 and HD1: 1 and HD2: 2
+Constraints Not Satisified for HW: 1 and HD1: 2 and HD2: 0
+Constraints Not Satisified for HW: 1 and HD1: 2 and HD2: 1
+Constraints Not Satisified for HW: 1 and HD1: 2 and HD2: 2
+Constraints Not Satisified for HW: 2 and HD1: 0 and HD2: 0
+Constraints Not Satisified for HW: 2 and HD1: 0 and HD2: 1
+Constraints Not Satisified for HW: 2 and HD1: 0 and HD2: 2
+Constraints Not Satisified for HW: 2 and HD1: 1 and HD2: 0
+Constraints Not Satisified for HW: 2 and HD1: 1 and HD2: 1
+Constraints Not Satisified for HW: 2 and HD1: 1 and HD2: 2
+Constraints Satisified for HW: 2 and HD1: 2 and HD2: 0
+	unknown_bv_3	->	00
+	unknown_bv_2	->	01
+	unknown_bv_0	->	11
+	unknown_bv_1	->	10
+Constraints Not Satisified for HW: 2 and HD1: 2 and HD2: 1
+Constraints Not Satisified for HW: 2 and HD1: 2 and HD2: 2
