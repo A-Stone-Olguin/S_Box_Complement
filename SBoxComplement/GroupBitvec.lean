@@ -10,6 +10,45 @@ lemma Bitvec.eq : ∀ (a b : Bitvec n), a.val = b.val ↔ a = b  := by
   intro a b
   exact Subtype.ext_iff_val.symm
 
+example  (va : List Bool): List.length va = @List.length Bool [] → va = [] := by apply?
+
+lemma Bitvec.eq2 : ∀ (a b : Bitvec n), a = b ↔ a.toNat = b.toNat := by
+  intro a b
+  apply Iff.intro
+  · -- ->
+    intro heq
+    rw [heq]
+  · -- <-
+    intro heq
+    cases' a with va pa
+    cases' b with vb pb
+    simp [bitsToNat_toList] at heq
+    unfold bitsToNat at heq
+    simp [← Bitvec.eq]
+    cases va with
+    | nil =>
+      rw [← pb] at pa
+      rw [List.length_nil] at pa
+      exact (List.length_eq_zero.mp pa.symm).symm
+    | cons head tail =>
+      rw [List.foldl] at heq
+      simp [addLsb] at heq
+      cases head with
+      | false =>
+        simp at heq
+        cases vb with
+        | nil =>
+          rw [← pb] at pa
+          rw [List.length_nil] at pa
+          exact List.length_eq_zero.mp pa
+        | cons headb tailb =>
+          cases headb with
+          | false => sorry
+          | true => sorry
+
+      | true =>
+        sorry
+
 #check Subtype.ext_val
 #eval (Bitvec.ofNat 3 3).val
 #eval (tail (Bitvec.ofNat 4 3)).val
@@ -21,93 +60,87 @@ lemma Bitvec.eq : ∀ (a b : Bitvec n), a.val = b.val ↔ a = b  := by
 #check Vector.append
 
 #check List.length_append
--- def Vector.append' {n m : Nat} : Vector α n → Vector α m → Vector α (n + m)
---   | ⟨l₁, h₁⟩, ⟨l₂, h₂⟩ => ⟨l₁ ++ l₂, by simp [*]⟩
+#eval tail (⟨[true, false], by simp [*]⟩ : Bitvec 2)
 
--- def Bitvec.append' {m n} : Bitvec m → Bitvec n → Bitvec (m + n) :=
---   Vector.append
-
-lemma Bitvec.tail_val_eq_val : ∀ (b : Bitvec n) , b =
-          tail ⟨a :: b.val, --List.length (a :: b.val) = n + 1
-          by
-          have h := b.property
-          have h_done : List.length (a :: b.val) = n + 1 := by
-            simp
-          exact h_done
-          ⟩ := by
+lemma Bitvec.tail_val_eq_val : ∀ (b : Bitvec n) (a : Bool), b =
+        (tail (⟨a :: b.val, by simp [*] ⟩ : Bitvec (n + 1))) := by
   intro b
+  simp [← Bitvec.eq]
+
+-- lemma test: ∀ (b : Bitvec n) (a : Bool), b =
+--         (tail (⟨a :: b.val, by simp [*] ⟩ : Bitvec (n + 1))) := by
+
+--         sorry
+
+#check ofNat_succ
+
+
+lemma test: ∀ (v : List Bool), List.length v = 0 → v = [] := by exact?
+
+lemma Bitvec_add : ∀ (a b : Bitvec n), (a + b).toNat = (a.toNat + b.toNat) % 2^n := by
+  intro a b
   induction n with
-  | zero => sorry
+  | zero =>
+    simp [Nat.mod_one]
+    sorry
   | succ n ih =>
+    simp [Bitvec.toNat_append, ih, bits_toNat_decide, mod_pow_succ, Nat.mul_comm]
     sorry
 
 
 lemma Bitvec.add_assoc : ∀ (a b c : Bitvec n), Bitvec.add a (Bitvec.add b c) = Bitvec.add (Bitvec.add a b) c := by
   intro a b c
-  induction a
+  simp [Bitvec.eq2]
+
+
+  rw [Bitvec.add, tail]
+  match adc a (Bitvec.add b c) false with
+  | { val := [], property := h } =>
+    contradiction
+  | { val := head :: v, property := h } =>
+    simp
+    rw [Bitvec.add, tail]
+    match adc (Bitvec.add a b) c false with
+    | { val := [], property := h2 } =>
+      contradiction
+    | { val := head2 :: v2, property := h2 } =>
+      simp
+      rw [← Bitvec.eq]
+      simp
+      induction n with
+      | zero =>
+        simp at h
+        have h' := List.length_eq_zero.mp h
+        simp at h2
+        have h2' := List.length_eq_zero.mp h2
+        rw [h', h2']
+      | succ n ih =>
+
+        sorry
   -- rw [← Bitvec.eq]
-  induction n with
-  | zero => simp
-  | succ n ih =>
-    rw [← Bitvec.eq]
-
-    cases' a with va pa
-    cases' b with vb pb
-    cases' c with vc pc
-    simp [Bitvec.add, adc, mapAccumr₂]
-
-
-    sorry
-
-  -- simp [Bitvec.add, List.tail]
-  -- match (adc { val := va, property := pa }
-  --            (tail (adc { val := vb, property := pb }
-  --                       { val := vc, property := pc } false))
-  --       false).val with
-  -- | [] =>  match (adc (tail (adc { val := va, property := pa }
-  --                                { val := vb, property := pb } false))
-  --                     { val := vc, property := pc } false).val with
-  --         | [] => rfl
-  --         | head :: as => cases as with
-  --                       | nil => rfl
-  --                       | cons head tail =>
-  -- | head :: as => sorry
-
-  -- simp [Bitvec.add, tail]
-  -- split
-  -- split
-  -- rfl
-  -- contradiction
-  -- split
-  -- contradiction
-  -- split at *
-  -- split at *
-  -- simp [*] at *
-
-  sorry
-
--- lemma Bitvec.add_assoc : ∀ (a b c : Bitvec n), a + b + c = a + (b + c) := by
---   intro a b c
---   simp [Bitvec.h_add_zero]
---   rw [← Bitvec.eq]
---   -- apply Bitvec.ext
---   cases' a with va pa
---   cases' b with vb pb
---   cases' c with vc pc
+  -- induction n with
+  -- | zero => simp
+  -- | succ n ih =>
+  --   rw [← Bitvec.eq]
+  --   -- let bool := head a
+  --   -- cases' a with va pa
+  --   -- cases' b with vb pb
+  --   -- cases' c with vc pc
+  --   -- specialize ih (tail a) (tail b) (tail c)
+  --   rw [Bitvec.tail_val_eq_val a true]
+  --   generalize tail { val := true :: a.val, property := (_ : succ (List.length a.val) = succ n + 1) } = a'
+  --   rw [Bitvec.tail_val_eq_val b true]
+  --   rw [Bitvec.tail_val_eq_val c true]
+  --   -- cases' a with va pa
+  --   -- cases' b with vb pb
+  --   -- cases' c with vc pc
+  --   -- rw [← Bitvec.eq] at ih
 
 
 
---   induction n with
---   | zero => simp
---   | succ n ih =>
---     specialize ih (tail a) (tail b) (tail c)
 
---     cases' a with va pa
---     cases' b with vb pb
---     cases' c with vc pc
---     apply Subtype.ext_val
 
---     sorry
+    -- sorry
 
 
 instance (n : ℕ): AddGroup (Bitvec n) where
