@@ -135,7 +135,7 @@ def s_box_def():
         ]  
     return s_box
 
-def new_hd_constraint(n, filename):
+def new_constraints(n, filename):
     """
     Uses z3 to solve if there can be another matrix such that each element has the same Hamming Weight and the same Hamming Distance between them
 
@@ -148,57 +148,50 @@ def new_hd_constraint(n, filename):
     """
     with open(filename, "w") as f:
         elements = n**2
-        bits = ceil(log2(elements))
-        for weight in range(0, bits+1):
-            for distance_1 in range(0, bits+1):
-                for distance_2 in range(0, bits+1):
-                    unknown_bvs = []
 
-                    # These will be the variables we solve for
-                    for i in range(elements):
-                        name = "unknown_bv_{element}".format(element=i)
-                        bv = BitVec(name, bits)
-                        unknown_bvs.append(bv)
+        # We will do bits starting at numbe of elements and keep going until we fail
+        for bits in trange(0, elements+1, desc="Testing number of bits", leave=False):
+            for weight in trange(1, bits+1, desc=f"Testing weight for {bits} bits", leave=False):
+                    for distance in trange(1, bits+1, desc=f"Testing HD for {bits} bits", leave=False):
+                        unknown_bvs = []
 
-                    # 256 values in bits, used for comparison
-                    known_bvs = []
-                    for i in range(elements):
-                        bv = BitVecVal(i, bits)
-                        known_bvs.append(bv)
+                        # These will be the variables we solve for
+                        for i in range(elements):
+                            name = "unknown_bv_{element}".format(element=i)
+                            bv = BitVec(name, bits)
+                            unknown_bvs.append(bv)
 
-                    s = Solver();
-                    s.set("timeout", 1000000)
+                        s = Solver();
+                        s.set("timeout", 1000000)
 
-                    s.add(Distinct(*unknown_bvs))
+                        s.add(Distinct(*unknown_bvs))
 
-                    # Hamming Weight and Hamming Distance check
-                    for i in range(len(known_bvs)):
-                        s.add(Hamming_Weight(known_bvs[i] + unknown_bvs[i]) == weight)
-                        s.add(Hamming_Distance(known_bvs[i], unknown_bvs[i]) == distance_1)
-                    for i in range(len(known_bvs)):
-                        for j in range(len(known_bvs)):
-                            if i != j:
-                                # print(f"i {i}, j: {j}", simplify(Hamming_Distance(known_bvs[i] + unknown_bvs[i], known_bvs[j] + unknown_bvs[j])), file=f)
-                                s.add(Hamming_Distance(known_bvs[i] + unknown_bvs[i], known_bvs[j] + unknown_bvs[j]) == distance_2)
+                        # Hamming Weight and Hamming Distance check
+                        for i in range(len(unknown_bvs)):
+                            s.add(Hamming_Weight(unknown_bvs[i]) == weight)
+                        for i in range(len(unknown_bvs)):
+                            for j in range(len(unknown_bvs)):
+                                if i != j:
+                                    s.add(Hamming_Distance(unknown_bvs[i],unknown_bvs[j]) == distance)
 
-                    if(s.check() == sat):
-                        print("Constraints Satisified for HW: %d and HD1: %d and HD2: %d" %(weight, distance_1, distance_2), file=f),
-                        m = s.model()
-                        for d in m.decls():
-                            print('\t{state}\t->\t{encode:0{fieldsize}b}'.format(state=d.name(),encode=m[d].as_long(),fieldsize=bits), file=f)
-                    else:
-                        print("Constraints Not Satisified for HW: %d and HD1: %d and HD2: %d" %(weight, distance_1, distance_2), file=f)
-                        sys.stdout.flush()
+                        if(s.check() == sat):
+                            print("Constraints Satisified for HW: %d and HD: %d and bits: %d" %(weight, distance, bits), file=f),
+                            m = s.model()
+                            for d in m.decls():
+                                print('\t{state}\t->\t{encode:0{fieldsize}b}'.format(state=d.name(),encode=m[d].as_long(),fieldsize=bits), file=f)
+                            sys.stdout.flush()
+                        else:
+                            print("Constraints Not Satisified for HW: %d and HD: %d  and bits: %d" %(weight, distance, bits), file=f)
+                            sys.stdout.flush()
     return
 
 
 def main():
     s_box = s_box_def()
 
-    # n = 16
-    for n in range(9, 17):
-        filename = f"results/new_hd_measure/{n}_by_{n}_S_box.txt"
-        new_hd_constraint(n, filename)
+    for n in range(2, 3):
+        filename = f"results/new_measure_constraints/{n}_by_{n}_S_box.txt"
+        new_constraints(n, filename)
     # bits = ceil(log2(n**2))
 
     # for weight in trange(4, 5):
