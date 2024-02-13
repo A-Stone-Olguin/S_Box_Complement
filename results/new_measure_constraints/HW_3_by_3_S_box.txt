@@ -1,0 +1,245 @@
+## Hamming Weight tested here, HD not tested
+
+Constraints Not Satisified for HW: 1 and HD: 1  and bits: 1
+Constraints Not Satisified for HW: 1 and HD: 1  and bits: 2
+Constraints Not Satisified for HW: 2 and HD: 1  and bits: 2
+Constraints Not Satisified for HW: 1 and HD: 1  and bits: 3
+Constraints Not Satisified for HW: 2 and HD: 1  and bits: 3
+Constraints Not Satisified for HW: 3 and HD: 1  and bits: 3
+Constraints Not Satisified for HW: 1 and HD: 1  and bits: 4
+Constraints Not Satisified for HW: 2 and HD: 1  and bits: 4
+Constraints Not Satisified for HW: 3 and HD: 1  and bits: 4
+Constraints Not Satisified for HW: 4 and HD: 1  and bits: 4
+Constraints Not Satisified for HW: 1 and HD: 1  and bits: 5
+Constraints Satisified for HW: 2 and HD: 1 and bits: 5
+	unknown_bv_7	->	10010
+	unknown_bv_4	->	00110
+	unknown_bv_5	->	10100
+	unknown_bv_2	->	11000
+	unknown_bv_8	->	10001
+	unknown_bv_0	->	01010
+	unknown_bv_1	->	00011
+	unknown_bv_3	->	00101
+	unknown_bv_6	->	01100
+Constraints Satisified for HW: 3 and HD: 1 and bits: 5
+	unknown_bv_7	->	11010
+	unknown_bv_4	->	00111
+	unknown_bv_5	->	01011
+	unknown_bv_2	->	10011
+	unknown_bv_8	->	01110
+	unknown_bv_0	->	10101
+	unknown_bv_1	->	01101
+	unknown_bv_3	->	11100
+	unknown_bv_6	->	11001
+Constraints Not Satisified for HW: 4 and HD: 1  and bits: 5
+Constraints Not Satisified for HW: 5 and HD: 1  and bits: 5
+Constraints Not Satisified for HW: 1 and HD: 1  and bits: 6
+Constraints Satisified for HW: 2 and HD: 1 and bits: 6
+	unknown_bv_4	->	010010
+	unknown_bv_5	->	101000
+	unknown_bv_2	->	011000
+	unknown_bv_8	->	010001
+	unknown_bv_3	->	000011
+	unknown_bv_0	->	110000
+	unknown_bv_1	->	001001
+	unknown_bv_6	->	100001
+	unknown_bv_7	->	100010
+Constraints Satisified for HW: 3 and HD: 1 and bits: 6
+	unknown_bv_4	->	000111
+	unknown_bv_5	->	101001
+	unknown_bv_2	->	100011
+	unknown_bv_8	->	001110
+	unknown_bv_3	->	100101
+	unknown_bv_0	->	100110
+	unknown_bv_1	->	110010
+	unknown_bv_6	->	110001
+	unknown_bv_7	->	010011
+Constraints Satisified for HW: 4 and HD: 1 and bits: 6
+	unknown_bv_4	->	101110
+	unknown_bv_5	->	110011
+	unknown_bv_2	->	110110
+	unknown_bv_8	->	101011
+	unknown_bv_3	->	001111
+	unknown_bv_0	->	110101
+	unknown_bv_1	->	111001
+	unknown_bv_6	->	011011
+	unknown_bv_7	->	011110
+Constraints Not Satisified for HW: 5 and HD: 1  and bits: 6
+Constraints Not Satisified for HW: 6 and HD: 1  and bits: 6
+Constraints Not Satisified for HW: 1 and HD: 1  and bits: 7
+Constraints Satisified for HW: 2 and HD: 1 and bits: 7
+	unknown_bv_7	->	0101000
+	unknown_bv_4	->	0010100
+	unknown_bv_5	->	0110000
+	unknown_bv_2	->	0100001
+	unknown_bv_8	->	1000001
+	unknown_bv_0	->	0001010
+	unknown_bv_1	->	0001100
+	unknown_bv_3	->	0000101
+	unknown_bv_6	->	0000110
+Constraints Satisified for HW: 3 and HD: 1 and bits: 7
+	unknown_bv_7	->	0101001
+	unknown_bv_4	->	0001110
+	unknown_bv_5	->	0011010
+	unknown_bv_2	->	0110001
+	unknown_bv_8	->	0000111
+	unknown_bv_0	->	1010001
+	unknown_bv_1	->	0101010
+	unknown_bv_3	->	1010100
+	unknown_bv_6	->	1100001
+Constraints Satisified for HW: 4 and HD: 1 and bits: 7
+	unknown_bv_7	->	0101011
+	unknown_bv_4	->	1100110
+	unknown_bv_5	->	1010101
+	unknown_bv_2	->	1011010
+	unknown_bv_8	->	0011110
+	unknown_bv_0	->	1000111
+	unknown_bv_1	->	1101010
+	unknown_bv_3	->	1101001
+	unknown_bv_6	->	1110001
+Constraints Satisified for HW: 5 and HD: 1 and bits: 7
+	unknown_bv_7	->	1001111
+	unknown_bv_4	->	1101101
+	unknown_bv_5	->	1010111
+	unknown_bv_2	->	1100111
+	unknown_bv_8	->	1110011
+	unknown_bv_0	->	1110110
+	unknown_bv_1	->	1110101
+	unknown_bv_3	->	1111001
+	unknown_bv_6	->	0011111
+Constraints Not Satisified for HW: 6 and HD: 1  and bits: 7
+Constraints Not Satisified for HW: 7 and HD: 1  and bits: 7
+Constraints Not Satisified for HW: 1 and HD: 1  and bits: 8
+Constraints Satisified for HW: 2 and HD: 1 and bits: 8
+	unknown_bv_1	->	00100010
+	unknown_bv_6	->	11000000
+	unknown_bv_7	->	00000110
+	unknown_bv_4	->	00110000
+	unknown_bv_5	->	00001100
+	unknown_bv_2	->	10000001
+	unknown_bv_8	->	01000010
+	unknown_bv_3	->	10010000
+	unknown_bv_0	->	01100000
+Constraints Satisified for HW: 3 and HD: 1 and bits: 8
+	unknown_bv_1	->	10100001
+	unknown_bv_6	->	10011000
+	unknown_bv_7	->	01001010
+	unknown_bv_4	->	00001110
+	unknown_bv_5	->	10010100
+	unknown_bv_2	->	11100000
+	unknown_bv_8	->	01101000
+	unknown_bv_3	->	00000111
+	unknown_bv_0	->	00011010
+Constraints Satisified for HW: 4 and HD: 1 and bits: 8
+	unknown_bv_1	->	10001101
+	unknown_bv_6	->	00011110
+	unknown_bv_7	->	10100110
+	unknown_bv_4	->	10101100
+	unknown_bv_5	->	01110001
+	unknown_bv_2	->	10111000
+	unknown_bv_8	->	01011001
+	unknown_bv_3	->	00100111
+	unknown_bv_0	->	01001110
+Constraints Satisified for HW: 5 and HD: 1 and bits: 8
+	unknown_bv_1	->	10011011
+	unknown_bv_6	->	00011111
+	unknown_bv_7	->	11011001
+	unknown_bv_4	->	11101001
+	unknown_bv_5	->	11110001
+	unknown_bv_2	->	01110110
+	unknown_bv_8	->	01111001
+	unknown_bv_3	->	10011101
+	unknown_bv_0	->	11000111
+Constraints Satisified for HW: 6 and HD: 1 and bits: 8
+	unknown_bv_1	->	10101111
+	unknown_bv_6	->	01111011
+	unknown_bv_7	->	10111101
+	unknown_bv_4	->	11111001
+	unknown_bv_5	->	11111010
+	unknown_bv_2	->	11011110
+	unknown_bv_8	->	11101101
+	unknown_bv_3	->	10111011
+	unknown_bv_0	->	11001111
+Constraints Not Satisified for HW: 7 and HD: 1  and bits: 8
+Constraints Not Satisified for HW: 8 and HD: 1  and bits: 8
+Constraints Satisified for HW: 1 and HD: 1 and bits: 9
+	unknown_bv_8	->	000000100
+	unknown_bv_0	->	001000000
+	unknown_bv_1	->	000000001
+	unknown_bv_3	->	000001000
+	unknown_bv_6	->	010000000
+	unknown_bv_7	->	000010000
+	unknown_bv_4	->	000000010
+	unknown_bv_5	->	100000000
+	unknown_bv_2	->	000100000
+Constraints Satisified for HW: 2 and HD: 1 and bits: 9
+	unknown_bv_8	->	001001000
+	unknown_bv_0	->	000010010
+	unknown_bv_1	->	100000001
+	unknown_bv_3	->	000101000
+	unknown_bv_6	->	000100010
+	unknown_bv_7	->	010001000
+	unknown_bv_4	->	000011000
+	unknown_bv_5	->	000110000
+	unknown_bv_2	->	000010001
+Constraints Satisified for HW: 3 and HD: 1 and bits: 9
+	unknown_bv_8	->	010001001
+	unknown_bv_0	->	100010010
+	unknown_bv_1	->	101000001
+	unknown_bv_3	->	000010101
+	unknown_bv_6	->	101001000
+	unknown_bv_7	->	011001000
+	unknown_bv_4	->	100100001
+	unknown_bv_5	->	110000001
+	unknown_bv_2	->	010000011
+Constraints Satisified for HW: 4 and HD: 1 and bits: 9
+	unknown_bv_8	->	000011110
+	unknown_bv_0	->	010110010
+	unknown_bv_1	->	001001101
+	unknown_bv_3	->	011110000
+	unknown_bv_6	->	011001001
+	unknown_bv_7	->	100001110
+	unknown_bv_4	->	101101000
+	unknown_bv_5	->	111000010
+	unknown_bv_2	->	111000001
+Constraints Satisified for HW: 5 and HD: 1 and bits: 9
+	unknown_bv_8	->	110011001
+	unknown_bv_0	->	000011111
+	unknown_bv_1	->	101010101
+	unknown_bv_3	->	111001001
+	unknown_bv_6	->	011101001
+	unknown_bv_7	->	011001110
+	unknown_bv_4	->	111100001
+	unknown_bv_5	->	101001011
+	unknown_bv_2	->	110100101
+Constraints Satisified for HW: 6 and HD: 1 and bits: 9
+	unknown_bv_8	->	001011111
+	unknown_bv_0	->	111000111
+	unknown_bv_1	->	110111001
+	unknown_bv_3	->	100111110
+	unknown_bv_6	->	101111010
+	unknown_bv_7	->	111100011
+	unknown_bv_4	->	100111101
+	unknown_bv_5	->	110111100
+	unknown_bv_2	->	011011110
+Constraints Satisified for HW: 7 and HD: 1 and bits: 9
+	unknown_bv_8	->	111111010
+	unknown_bv_0	->	011101111
+	unknown_bv_1	->	111111100
+	unknown_bv_3	->	100111111
+	unknown_bv_6	->	011111101
+	unknown_bv_7	->	110110111
+	unknown_bv_4	->	110011111
+	unknown_bv_5	->	101011111
+	unknown_bv_2	->	101110111
+Constraints Satisified for HW: 8 and HD: 1 and bits: 9
+	unknown_bv_8	->	011111111
+	unknown_bv_0	->	110111111
+	unknown_bv_1	->	111111101
+	unknown_bv_3	->	101111111
+	unknown_bv_6	->	111101111
+	unknown_bv_7	->	111110111
+	unknown_bv_4	->	111011111
+	unknown_bv_5	->	111111011
+	unknown_bv_2	->	111111110
+Constraints Not Satisified for HW: 9 and HD: 1  and bits: 9

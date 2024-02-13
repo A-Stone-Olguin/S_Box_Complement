@@ -1,0 +1,38 @@
+Constraints Not Satisified for HW: 1 and HD: 1  and bits: 1
+Constraints Not Satisified for HW: 1 and HD: 1  and bits: 2
+Constraints Not Satisified for HW: 1 and HD: 2  and bits: 2
+Constraints Not Satisified for HW: 2 and HD: 1  and bits: 2
+Constraints Not Satisified for HW: 2 and HD: 2  and bits: 2
+Constraints Not Satisified for HW: 1 and HD: 1  and bits: 3
+Constraints Not Satisified for HW: 1 and HD: 2  and bits: 3
+Constraints Not Satisified for HW: 1 and HD: 3  and bits: 3
+Constraints Not Satisified for HW: 2 and HD: 1  and bits: 3
+Constraints Not Satisified for HW: 2 and HD: 2  and bits: 3
+Constraints Not Satisified for HW: 2 and HD: 3  and bits: 3
+Constraints Not Satisified for HW: 3 and HD: 1  and bits: 3
+Constraints Not Satisified for HW: 3 and HD: 2  and bits: 3
+Constraints Not Satisified for HW: 3 and HD: 3  and bits: 3
+Constraints Not Satisified for HW: 1 and HD: 1  and bits: 4
+Constraints Satisified for HW: 1 and HD: 2 and bits: 4
+	unknown_bv_3	->	0100
+	unknown_bv_2	->	1000
+	unknown_bv_0	->	0010
+	unknown_bv_1	->	0001
+Constraints Not Satisified for HW: 1 and HD: 3  and bits: 4
+Constraints Not Satisified for HW: 1 and HD: 4  and bits: 4
+Constraints Not Satisified for HW: 2 and HD: 1  and bits: 4
+Constraints Not Satisified for HW: 2 and HD: 2  and bits: 4
+Constraints Not Satisified for HW: 2 and HD: 3  and bits: 4
+Constraints Not Satisified for HW: 2 and HD: 4  and bits: 4
+Constraints Not Satisified for HW: 3 and HD: 1  and bits: 4
+Constraints Satisified for HW: 3 and HD: 2 and bits: 4
+	unknown_bv_3	->	1101
+	unknown_bv_2	->	1011
+	unknown_bv_0	->	1110
+	unknown_bv_1	->	0111
+Constraints Not Satisified for HW: 3 and HD: 3  and bits: 4
+Constraints Not Satisified for HW: 3 and HD: 4  and bits: 4
+Constraints Not Satisified for HW: 4 and HD: 1  and bits: 4
+Constraints Not Satisified for HW: 4 and HD: 2  and bits: 4
+Constraints Not Satisified for HW: 4 and HD: 3  and bits: 4
+Constraints Not Satisified for HW: 4 and HD: 4  and bits: 4
